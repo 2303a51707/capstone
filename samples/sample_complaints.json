@@ -1,0 +1,21 @@
+{
+  "note": "Sample complaints for testing. Use with: python scripts/demo.py --text \"...\" --language <code> --region <region>",
+  "samples": [
+    {"language": "ml", "region": "Telangana", "expected": "Theft",
+     "text": "ഇന്നലെ വൈകുന്നേരം ചാർമിനാറിന് അടുത്ത് വെച്ച് എന്റെ മൊബൈൽ ഫോണും 5000 രൂപയും ആരോ എന്റെ പോക്കറ്റിൽ നിന്ന് മോഷ്ടിച്ചു."},
+    {"language": "te", "region": "Telangana", "expected": "Snatching",
+     "text": "నిన్న రాత్రి అమీర్‌పేట బస్ స్టాప్ దగ్గర బైక్ మీద వచ్చిన ఇద్దరు వ్యక్తులు నా మెడలోని బంగారు గొలుసు లాక్కొని పారిపోయారు."},
+    {"language": "hi", "region": "Karnataka", "expected": "Cyber Fraud",
+     "text": "मुझे बैंक से फोन आया था, उसने OTP मांगा और मेरे खाते से 45,000 रुपये कट गए।"},
+    {"language": "ta", "region": "Tamil Nadu", "expected": "House-breaking / Burglary",
+     "text": "நேற்று இரவு யாரோ எங்கள் வீட்டின் பூட்டை உடைத்து நகைகளையும் பணத்தையும் திருடிச் சென்றுவிட்டார்கள்."},
+    {"language": "kn", "region": "Karnataka", "expected": "Assault / Causing Hurt",
+     "text": "ನನ್ನ ನೆರೆಮನೆಯವರು ನಿನ್ನೆ ಸಂಜೆ ಕಬ್ಬಿಣದ ರಾಡ್‌ನಿಂದ ನನ್ನನ್ನು ಹೊಡೆದರು, ನನ್ನ ಕೈ ಮುರಿದಿದೆ."},
+    {"language": "bn", "region": "West Bengal", "expected": "Missing Person",
+     "text": "আমার ১৫ বছরের মেয়ে গতকাল সকালে স্কুলে গিয়েছিল কিন্তু বাড়ি ফেরেনি। তার ফোন বন্ধ।"},
+    {"language": "en", "region": "Telangana", "expected": "Lost Property (no offence disclosed)",
+     "text": "I lost my Aadhaar card and driving licence near Sultan Bazaar this morning. I need a report for duplicates."},
+    {"language": "en", "region": "Maharashtra", "expected": "Cheating / Fraud",
+     "text": "I paid three lakhs advance to a builder for a flat booking, he gave me fake documents and now his phone is switched off."}
+  ]
+}
