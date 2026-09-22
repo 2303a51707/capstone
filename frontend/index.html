@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NyayaVoice — Your Voice. Your Language. Your Justice.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Telugu:wght@400;600&family=Noto+Sans+Devanagari:wght@400;600&family=Noto+Sans+Tamil:wght@400;600&family=Noto+Sans+Kannada:wght@400;600&family=Noto+Sans+Malayalam:wght@400;600&family=Noto+Sans+Bengali:wght@400;600&family=Noto+Sans+Marathi:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="/styles.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar" aria-label="Main navigation">
+  <div class="container navbar-inner">
+    <a class="logo" href="#" onclick="NV.showPage('home');return false">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v18M7 21h10M12 6l-5 2 5-2 5 2-5-2zM7 8l-3 7a3.5 3.5 0 0 0 6 0L7 8zM17 8l-3 7a3.5 3.5 0 0 0 6 0l-3-7z"/></svg>
+      </span>
+      NyayaVoice
+    </a>
+    <div class="nav-links">
+      <a href="#" onclick="NV.showPage('home');return false" class="active">Home</a>
+      <a href="#" onclick="NV.showPage('dashboard');return false">My Complaints</a>
+      <a href="#" onclick="NV.showPage('home');setTimeout(()=>document.getElementById('about').scrollIntoView({behavior:'smooth'}),120);return false">About</a>
+    </div>
+    <div class="nav-right">
+      <select class="lang-select" aria-label="Interface language">
+        <option>English</option><option class="hi">हिन्दी</option><option class="te">తెలుగు</option>
+      </select>
+      <button class="icon-btn" aria-label="Help" onclick="NV.toast('Help center — coming soon in this demo')"><i data-lucide="circle-help" class="icon"></i></button>
+      <button class="icon-btn" aria-label="Accessibility settings" onclick="NV.toggleA11y()"><i data-lucide="accessibility" class="icon"></i></button>
+      <button class="icon-btn" aria-label="Profile" onclick="NV.toast('Sign-in is not part of this demo')"><i data-lucide="user-round" class="icon"></i></button>
+      <a href="#" class="btn btn-primary btn-sm" onclick="NV.newComplaint();return false" style="margin-left:4px">Report an Incident</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HOME PAGE ============ -->
+<main id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <span class="eyebrow"><i data-lucide="scale" class="icon" style="width:14px;height:14px"></i> AI-Assisted Multilingual Legal Access</span>
+        <h1>Speak in Your Language.<br>Let NyayaVoice <span class="accent">Understand.</span></h1>
+        <p class="sub">Report an incident using your voice, in the language you are most comfortable with. NyayaVoice converts your complaint into structured information, identifies potentially relevant legal provisions, and prepares an editable FIR draft in English and the police station's regional language.</p>
+        <div class="hero-ctas">
+          <a href="#" class="btn btn-accent" onclick="NV.newComplaint();return false"><i data-lucide="mic" class="icon"></i> Report an Incident</a>
+          <a href="#how" class="btn btn-outline" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.3)"><i data-lucide="play-circle" class="icon"></i> Explore How It Works</a>
+        </div>
+        <div class="hero-note"><i data-lucide="shield-check" class="icon"></i> AI-assisted draft — every FIR is reviewed by an authorized officer before official use.</div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="mic-stage">
+          <div class="mic-orb"><i data-lucide="mic" class="icon"></i></div>
+          <div class="waves">
+            <span style="animation-delay:0s;height:12px"></span><span style="animation-delay:.1s;height:22px"></span>
+            <span style="animation-delay:.2s;height:30px"></span><span style="animation-delay:.3s;height:18px"></span>
+            <span style="animation-delay:.4s;height:26px"></span><span style="animation-delay:.5s;height:14px"></span>
+            <span style="animation-delay:.6s;height:24px"></span><span style="animation-delay:.7s;height:16px"></span>
+            <span style="animation-delay:.8s;height:28px"></span><span style="animation-delay:.9s;height:12px"></span>
+            <span style="animation-delay:1s;height:20px"></span>
+          </div>
+          <small style="color:#8fa2bf;font-size:12.5px">Ready to listen…</small>
+        </div>
+        <div class="flow-row">
+          <div class="flow-step"><i data-lucide="audio-lines" class="icon"></i><small>VOICE</small></div>
+          <div class="flow-arrow"><i data-lucide="chevron-right" class="icon"></i></div>
+          <div class="flow-step"><i data-lucide="brain-circuit" class="icon"></i><small>AI UNDERSTANDING</small></div>
+          <div class="flow-arrow"><i data-lucide="chevron-right" class="icon"></i></div>
+          <div class="flow-step"><i data-lucide="scale" class="icon"></i><small>LEGAL ANALYSIS</small></div>
+          <div class="flow-arrow"><i data-lucide="chevron-right" class="icon"></i></div>
+          <div class="flow-step"><i data-lucide="file-text" class="icon"></i><small>FIR</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="trust">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon" style="background:var(--blue-50)"><i data-lucide="languages" class="icon" style="color:var(--blue-600)"></i></div>
+          <h3>Multilingual</h3><p>Speak in your preferred Indian language — input, output, and everything in between.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon" style="background:var(--saffron-50)"><i data-lucide="mic" class="icon" style="color:var(--saffron-dark)"></i></div>
+          <h3>Voice First</h3><p>Describe the incident naturally, without typing everything.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon" style="background:var(--green-50)"><i data-lucide="scale" class="icon" style="color:var(--green)"></i></div>
+          <h3>Legal Assistance</h3><p>Find potentially relevant legal provisions, with transparent explanations.</p>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon" style="background:var(--gray-100)"><i data-lucide="lock" class="icon" style="color:var(--navy-800)"></i></div>
+          <h3>Privacy Focused</h3><p>Your complaint information is handled with care and clear controls.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANGUAGE BARRIER -->
+  <section class="section alt">
+    <div class="container">
+      <div style="text-align:center">
+        <div class="sec-eyebrow">Language Access</div>
+        <h2 class="sec-title">Breaking the Language Barrier</h2>
+        <p class="sec-sub" style="margin:0 auto">A citizen speaks in the language they know. The police station receives the complaint in the language they work in. NyayaVoice bridges the gap.</p>
+      </div>
+      <div class="pipeline">
+        <div class="pipe-node">
+          <span class="tag">Citizen</span>
+          <h4>Malayalam Speaker</h4>
+          <p>Kerala resident reporting a theft</p>
+          <div class="sample ml">എന്റെ ഫോൺ തട്ടിപ്പോയി</div>
+        </div>
+        <div class="pipe-connector"><i data-lucide="move-right" class="icon"></i></div>
+        <div class="pipe-node">
+          <span class="tag">Voice Input</span>
+          <h4>Malayalam Voice</h4>
+          <p>Natural spoken description of the incident</p>
+          <div class="sample ml" style="font-size:13.5px">ചാർമിനാർ സമീപം, ഇന്നലെ വൈകുന്നേരം…</div>
+        </div>
+        <div class="pipe-connector"><i data-lucide="move-right" class="icon"></i></div>
+        <div class="pipe-node ai-node">
+          <span class="tag">NyayaVoice AI</span>
+          <h4>Speech + Translation + NLP</h4>
+          <p>Recognition, translation, and structured extraction in one pass</p>
+          <div class="sample" style="font-family:Inter">"My phone was stolen near Charminar yesterday evening…"</div>
+        </div>
+        <div class="pipe-connector"><i data-lucide="move-right" class="icon"></i></div>
+        <div class="pipe-node">
+          <span class="tag">Police Station</span>
+          <h4>Telangana</h4>
+          <p>Regional working language: Telugu</p>
+          <div class="sample te" style="font-size:13.5px">చార్మినార్ వద్ద…</div>
+        </div>
+        <div class="pipe-connector"><i data-lucide="move-right" class="icon"></i></div>
+        <div class="pipe-node">
+          <span class="tag">Output</span>
+          <h4>English + Telugu FIR</h4>
+          <p>Editable, review-ready draft in both languages</p>
+          <div class="sample" style="font-family:Inter;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+            <span style="background:var(--blue-50);padding:4px 12px;border-radius:99px;font-size:12.5px;color:var(--blue-600);font-weight:600">English FIR</span>
+            <span class="te" style="background:var(--saffron-50);padding:4px 12px;border-radius:99px;font-size:12.5px;color:var(--saffron-dark);font-weight:600">తెలుగు FIR</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how">
+    <div class="container">
+      <div style="text-align:center">
+        <div class="sec-eyebrow">The Process</div>
+        <h2 class="sec-title">How It Works</h2>
+        <p class="sec-sub" style="margin:0 auto">Five simple steps from voice to a review-ready FIR draft.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step-num">01</div><i data-lucide="mic" class="icon"></i><h4>Speak</h4><p>Describe what happened in your own language.</p></div>
+        <div class="step"><div class="step-num">02</div><i data-lucide="audio-lines" class="icon"></i><h4>Understand</h4><p>Speech is converted to text and the language is detected.</p></div>
+        <div class="step"><div class="step-num">03</div><i data-lucide="scan-search" class="icon"></i><h4>Analyze</h4><p>NLP extracts people, location, date, time, property, money, injuries, suspects and witnesses.</p></div>
+        <div class="step"><div class="step-num">04</div><i data-lucide="scale" class="icon"></i><h4>Find Relevant Provisions</h4><p>Potentially relevant legal provisions are identified and explained.</p></div>
+        <div class="step"><div class="step-num">05</div><i data-lucide="file-check-2" class="icon"></i><h4>Generate FIR</h4><p>Editable English and regional-language FIR drafts are prepared.</p></div>
+      </div>
+      <div style="text-align:center;margin-top:44px">
+        <a href="#" class="btn btn-accent" onclick="NV.newComplaint();return false"><i data-lucide="mic" class="icon"></i> Start Reporting</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / PRIVACY -->
+  <section class="section alt" id="about">
+    <div class="container">
+      <div style="text-align:center">
+        <div class="sec-eyebrow">Transparency &amp; Privacy</div>
+        <h2 class="sec-title">Built on Trust, Designed for Clarity</h2>
+        <p class="sec-sub" style="margin:0 auto">NyayaVoice is transparent about what it does with your information — and what it does not do.</p>
+      </div>
+      <div class="privacy-grid">
+        <div class="priv-card"><i data-lucide="mic" class="icon"></i><h4>Voice &amp; Transcripts</h4><p>Voice input is converted to text for processing. Your original transcript is always preserved and shown to you, unmodified.</p></div>
+        <div class="priv-card"><i data-lucide="languages" class="icon"></i><h4>Translations</h4><p>Translations are generated to help officers understand your complaint. The English translation is always shown separately from the original.</p></div>
+        <div class="priv-card"><i data-lucide="file-text" class="icon"></i><h4>Complaint Information</h4><p>Extracted facts and generated drafts are clearly labeled as AI-assisted and must be verified by an authorized officer before official use.</p></div>
+        <div class="priv-card"><i data-lucide="database" class="icon"></i><h4>Data Retention</h4><p>Retention policies are configured per deployment. You can request deletion of your complaint data where the deployment supports it.</p></div>
+        <div class="priv-card"><i data-lucide="user-check" class="icon"></i><h4>User Control</h4><p>You can review, edit, or discard any AI-generated content before it reaches an officer. Nothing is filed automatically.</p></div>
+        <div class="priv-card"><i data-lucide="eye" class="icon"></i><h4>No Hidden Decisions</h4><p>Every legal suggestion comes with an explanation of why it was suggested — no black-box conclusions.</p></div>
+      </div>
+      <div style="text-align:center;margin-top:44px">
+        <button class="btn btn-outline" onclick="NV.toast('Full accessibility settings are available from the toolbar icon')"><i data-lucide="accessibility" class="icon"></i> Accessibility Settings</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ REPORT PAGE ============ -->
+<main id="page-report" class="page">
+  <section class="section" style="padding-top:44px">
+    <div class="container">
+      <div style="text-align:center">
+        <h1 class="sec-title" style="margin-bottom:4px">Report an Incident</h1>
+        <p class="sec-sub" style="margin:0 auto">Speak naturally. We will handle the language, structure, and drafting.</p>
+        <div class="status-strip" id="statusStrip"></div>
+      </div>
+
+      <div class="progress-bar" id="progressBar">
+        <div class="pstep now" data-step="1"><span class="dot">1</span>Language</div><div class="line pline"></div>
+        <div class="pstep" data-step="2"><span class="dot">2</span>Voice</div><div class="line pline"></div>
+        <div class="pstep" data-step="3"><span class="dot">3</span>Translation</div><div class="line pline"></div>
+        <div class="pstep" data-step="4"><span class="dot">4</span>Analysis</div><div class="line pline"></div>
+        <div class="pstep" data-step="5"><span class="dot">5</span>FIR</div>
+      </div>
+
+      <!-- STEP 1 : LANGUAGE + REGION -->
+      <div class="flow-panel" id="rp-step-1">
+        <h2>Select Your Language</h2>
+        <p class="fp-sub">Choose the language you are most comfortable speaking in. You can also let the system detect it from your speech.</p>
+        <div class="lang-grid" id="langGrid"></div>
+        <div class="auto-detect" id="autoDetect" onclick="NV.pickAuto()"><i data-lucide="wand-sparkles" class="icon"></i> Auto Detect Language</div>
+
+        <h2 style="margin-top:34px">Police Station Region</h2>
+        <p class="fp-sub">The complaint will also be prepared in the working language of this region, so the officer can read it.</p>
+        <div class="region-grid">
+          <div>
+            <label class="field-label" for="regionSelect">State / Region</label>
+            <select class="nv-select" id="regionSelect" onchange="NV.pickRegion(this.value)"></select>
+          </div>
+          <div>
+            <label class="field-label" for="stationInput">Police Station (optional)</label>
+            <input class="nv-input" id="stationInput" placeholder="e.g. Charminar Police Station">
+          </div>
+          <div>
+            <label class="field-label">Regional FIR will be prepared in</label>
+            <div class="nv-input" id="regionalLangLabel" style="background:var(--blue-50);border-color:var(--blue-100);font-weight:700;color:var(--navy-900)">Telugu</div>
+          </div>
+        </div>
+
+        <div class="advisory info" style="margin-top:22px">
+          <i data-lucide="languages" class="icon"></i>
+          <div><b id="bridgeSummary">You speak Telugu. The police station works in Telugu.</b><br>
+          Your original words are always kept. An English copy is prepared as the common reference, and a regional-language copy is prepared for the officer.</div>
+        </div>
+
+        <div class="flow-actions">
+          <span></span>
+          <button class="btn btn-primary" onclick="NV.goStep(2)">Continue <i data-lucide="arrow-right" class="icon"></i></button>
+        </div>
+      </div>
+
+      <!-- STEP 2 : VOICE / TEXT -->
+      <div class="flow-panel" id="rp-step-2" style="display:none">
+        <h2>Describe the Incident</h2>
+        <p class="fp-sub">Tap the microphone and describe what happened, in your own words. You can also type instead.</p>
+
+        <div class="mode-tabs">
+          <button class="mode-tab active" id="tabVoice" onclick="NV.setMode('voice')"><i data-lucide="mic" class="icon"></i> Speak</button>
+          <button class="mode-tab" id="tabText" onclick="NV.setMode('text')"><i data-lucide="keyboard" class="icon"></i> Type</button>
+        </div>
+
+        <div id="voiceMode">
+          <div class="voice-stage">
+            <button class="big-mic" id="bigMic" aria-label="Tap to speak" onclick="NV.toggleRecording()"><i data-lucide="mic" class="icon" id="micIcon"></i></button>
+            <div class="timer" id="recTimer" style="display:none">00:00</div>
+            <div class="listening-label" id="listeningLbl" style="display:none">Listening… speak now</div>
+            <div class="live-caption hidden" id="liveCaption"></div>
+            <div class="meta-row">
+              <span>Language: <b id="chosenLang">Telugu</b></span>
+              <span>Police Region: <b id="chosenRegion">Telangana</b></span>
+              <span id="asrModeLabel">Recognition: browser</span>
+            </div>
+          </div>
+        </div>
+
+        <div id="textMode" class="hidden">
+          <label class="field-label" for="typedText">Write your complaint in any supported language</label>
+          <textarea class="nv-textarea" id="typedText" placeholder="Describe what happened, where and when…"></textarea>
+          <div style="text-align:right;margin-top:10px">
+            <button class="btn btn-primary" onclick="NV.useTypedText()"><i data-lucide="check" class="icon"></i> Use this text</button>
+          </div>
+        </div>
+
+        <div id="voiceError" class="hidden" style="margin-top:20px">
+          <div class="error-box">
+            <div class="err-icon"><i data-lucide="mic-off" class="icon"></i></div>
+            <h4 id="voiceErrorTitle">Speech not detected</h4>
+            <p id="voiceErrorMsg">We couldn't clearly understand the recording. Please try again in a quieter environment. Your previous input is preserved.</p>
+            <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+              <button class="btn btn-primary btn-sm" onclick="NV.hideError()"><i data-lucide="rotate-ccw" class="icon"></i> Try Again</button>
+              <button class="btn btn-outline btn-sm" onclick="NV.setMode('text');NV.hideError()"><i data-lucide="keyboard" class="icon"></i> Type Instead</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="transcript-area" id="transcriptArea" style="display:none">
+          <label class="field-label">Your recording — transcribed text (editable)</label>
+          <textarea id="transcriptText" class="nv-textarea" aria-label="Transcribed text, editable"></textarea>
+          <p class="tiny muted" style="margin-top:8px"><i data-lucide="info" class="icon" style="width:13px;height:13px;vertical-align:-2px"></i> Read this carefully and correct anything that is wrong. The corrected text is what gets analysed.</p>
+        </div>
+
+        <div class="flow-actions">
+          <button class="btn btn-ghost" onclick="NV.goStep(1)"><i data-lucide="arrow-left" class="icon"></i> Back</button>
+          <div style="display:flex;gap:10px">
+            <button class="btn btn-outline" id="recordAgainBtn" style="display:none" onclick="NV.resetRecording()"><i data-lucide="rotate-ccw" class="icon"></i> Record Again</button>
+            <button class="btn btn-primary" id="voiceContinueBtn" style="display:none" onclick="NV.runAnalysis()">Translate &amp; Analyse <i data-lucide="arrow-right" class="icon"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3 : TRANSLATION -->
+      <div class="flow-panel" id="rp-step-3" style="display:none">
+        <h2>Review the Translation</h2>
+        <p class="fp-sub">Your original words are preserved on the left. The English translation is shown separately on the right.</p>
+        <div class="split">
+          <div class="split-card" id="splitOrig">
+            <div class="split-head" onclick="NV.toggleSplit('splitOrig')"><h5><i data-lucide="mic" class="icon"></i> Original — <span id="origLangLabel">Telugu</span></h5><i data-lucide="chevron-up" class="chev icon"></i></div>
+            <div class="split-body" id="origBody"></div>
+          </div>
+          <div class="split-card" id="splitEn">
+            <div class="split-head" onclick="NV.toggleSplit('splitEn')"><h5><i data-lucide="languages" class="icon"></i> English Translation</h5><i data-lucide="chevron-up" class="chev icon"></i></div>
+            <div class="split-body" id="enBody"></div>
+          </div>
+        </div>
+        <div class="confidence" id="translationConfidence"></div>
+        <div id="translationWarnings"></div>
+        <div class="flow-actions">
+          <button class="btn btn-ghost" onclick="NV.goStep(2)"><i data-lucide="arrow-left" class="icon"></i> Back</button>
+          <button class="btn btn-primary" onclick="NV.goStep(4)">Continue to Analysis <i data-lucide="arrow-right" class="icon"></i></button>
+        </div>
+      </div>
+
+      <!-- STEP 4 : ANALYSIS -->
+      <div class="flow-panel" id="rp-step-4" style="display:none">
+        <div class="processing" id="procScreen" style="display:none">
+          <div class="spinner"></div>
+          <h2 style="margin-top:18px">Analysing your complaint…</h2>
+          <div class="proc-steps" id="procSteps">
+            <div class="proc-step pending" data-key="asr"><i data-lucide="circle" class="icon"></i> Speech converted to text</div>
+            <div class="proc-step pending" data-key="lang"><i data-lucide="circle" class="icon"></i> Language identified</div>
+            <div class="proc-step pending" data-key="translate"><i data-lucide="circle" class="icon"></i> Translation completed</div>
+            <div class="proc-step pending" data-key="entities"><i data-lucide="circle" class="icon"></i> Important information extracted</div>
+            <div class="proc-step pending" data-key="sections"><i data-lucide="circle" class="icon"></i> Finding potentially relevant legal provisions</div>
+            <div class="proc-step pending" data-key="fir"><i data-lucide="circle" class="icon"></i> Preparing FIR draft</div>
+          </div>
+        </div>
+
+        <div id="analysisResult" style="display:none">
+          <h2>Incident Analysis</h2>
+          <p class="fp-sub">Review the extracted information. Every field is editable — correct anything that looks wrong before the FIR is drafted.</p>
+
+          <div id="analysisWarnings"></div>
+          <div class="summary-box" id="summaryBox"></div>
+          <div id="classificationBox"></div>
+          <div class="entity-grid" id="entityGrid"></div>
+          <div id="followUps"></div>
+
+          <h3 style="font-size:20px;font-weight:800;margin:30px 0 4px;display:flex;align-items:center;gap:9px"><i data-lucide="scale" class="icon" style="color:var(--saffron-dark)"></i> Potentially Relevant Legal Provisions</h3>
+          <p style="font-size:13.5px;color:var(--gray-600);margin-bottom:16px">These are AI-generated suggestions for informational assistance — not a legal conclusion. An authorized officer must verify them.</p>
+          <div id="lawRegimeNote"></div>
+          <div id="provisionList"></div>
+          <div id="advisoryList"></div>
+          <div id="signalsBox"></div>
+
+          <div class="flow-actions">
+            <button class="btn btn-ghost" onclick="NV.goStep(3)"><i data-lucide="arrow-left" class="icon"></i> Back</button>
+            <button class="btn btn-accent" onclick="NV.generateFIR()">Generate FIR Draft <i data-lucide="file-text" class="icon"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 5 : FIR -->
+      <div class="flow-panel" id="rp-step-5" style="display:none;max-width:1000px">
+        <h2>FIR Draft</h2>
+        <p class="fp-sub">Editable drafts in English and the police station's regional language. Nothing is filed automatically.</p>
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:18px">
+          <div class="fir-tabs" id="firTabs"></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn btn-outline btn-sm" id="editBtn" onclick="NV.toggleEdit()"><i data-lucide="pen-line" class="icon"></i> Edit</button>
+            <button class="btn btn-outline btn-sm" onclick="NV.saveComplaint()"><i data-lucide="save" class="icon"></i> Save Draft</button>
+            <button class="btn btn-outline btn-sm" onclick="NV.regenerate()"><i data-lucide="refresh-cw" class="icon"></i> Regenerate</button>
+            <button class="btn btn-primary btn-sm" id="pdfBtn" onclick="NV.downloadPDF()"><i data-lucide="download" class="icon"></i> Download PDF</button>
+          </div>
+        </div>
+
+        <div class="draft-banner"><i data-lucide="triangle-alert" class="icon"></i> AI-ASSISTED DRAFT — REQUIRES HUMAN REVIEW BY AN AUTHORIZED POLICE OFFICER BEFORE OFFICIAL USE</div>
+
+        <div class="fir-doc" id="fir-en"></div>
+        <div class="fir-doc hidden" id="fir-regional"></div>
+        <div class="fir-doc hidden" id="fir-orig"></div>
+        <div class="hidden" id="fir-bi"></div>
+
+        <div class="flow-actions">
+          <button class="btn btn-ghost" onclick="NV.goStep(4)"><i data-lucide="arrow-left" class="icon"></i> Back</button>
+          <button class="btn btn-success" onclick="NV.saveComplaint(true)"><i data-lucide="check" class="icon"></i> Save &amp; View My Complaints</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ DASHBOARD ============ -->
+<main id="page-dashboard" class="page">
+  <section class="section" style="padding-top:44px">
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px">
+        <div><h1 class="sec-title" style="margin-bottom:2px">My Complaints</h1><p class="sec-sub">Track your reported incidents and FIR drafts.</p></div>
+        <a href="#" class="btn btn-primary" onclick="NV.newComplaint();return false"><i data-lucide="plus" class="icon"></i> New Complaint</a>
+      </div>
+      <div class="stats-grid" id="statsGrid"></div>
+      <div class="search-row">
+        <input class="nv-input" id="searchInput" placeholder="Search by reference, incident type, region or complaint text…" onkeydown="if(event.key==='Enter')NV.loadDashboard()">
+        <button class="btn btn-outline" onclick="NV.loadDashboard()"><i data-lucide="search" class="icon"></i> Search</button>
+      </div>
+      <div class="card" id="complaintsCard"></div>
+      <p class="tiny muted" style="margin-top:12px"><i data-lucide="database" class="icon" style="width:13px;height:13px;vertical-align:-2px"></i> Records are stored in the local SQLite database created by this application.</p>
+    </div>
+  </section>
+</main>
+
+<!-- ============ COMPLAINT DETAILS ============ -->
+<main id="page-details" class="page">
+  <section class="section" style="padding-top:44px">
+    <div class="container">
+      <button class="btn btn-ghost btn-sm" onclick="NV.showPage('dashboard')" style="margin-bottom:14px"><i data-lucide="arrow-left" class="icon"></i> Back to My Complaints</button>
+      <div id="detailsBody"></div>
+    </div>
+  </section>
+</main>
+
+<div id="modalHost"></div>
+
+<!-- mobile nav -->
+<nav class="mobile-nav" aria-label="Mobile navigation">
+  <a href="#" onclick="NV.showPage('home');return false" class="active"><i data-lucide="house" class="icon"></i>Home</a>
+  <a href="#" onclick="NV.newComplaint();return false"><i data-lucide="mic" class="icon"></i>Report</a>
+  <a href="#" onclick="NV.showPage('dashboard');return false"><i data-lucide="folder-open" class="icon"></i>Complaints</a>
+  <a href="#" onclick="NV.toggleA11y();return false"><i data-lucide="accessibility" class="icon"></i>Access</a>
+</nav>
+
+<!-- accessibility panel -->
+<div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="Accessibility settings">
+  <h4><i data-lucide="accessibility" class="icon"></i> Accessibility Settings</h4>
+  <div class="a11y-row"><span>Large text</span><button class="toggle" aria-label="Toggle large text" onclick="this.classList.toggle('on');document.body.classList.toggle('large-text')"></button></div>
+  <div class="a11y-row"><span>High contrast</span><button class="toggle" aria-label="Toggle high contrast" onclick="this.classList.toggle('on');document.body.classList.toggle('high-contrast')"></button></div>
+  <div class="a11y-row"><span>Reduce motion</span><button class="toggle" aria-label="Toggle reduced motion" onclick="this.classList.toggle('on');document.body.classList.toggle('reduced-motion')"></button></div>
+  <p style="font-size:12px;color:var(--gray-600);margin-top:10px">The application is keyboard navigable and screen-reader labeled throughout.</p>
+</div>
+
+<div class="toast" id="toast"><i data-lucide="check-circle-2" class="icon"></i><span id="toastMsg"></span></div>
+
+<div class="disclaimer-bar"><b>Legal Disclaimer:</b> NyayaVoice provides AI-assisted complaint drafting and potentially relevant legal-provision identification for informational and administrative assistance. AI-generated content must be reviewed and verified by an authorized police officer or qualified legal professional before official use.</div>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" style="color:#fff" href="#" onclick="NV.showPage('home');return false"><span class="logo-mark"><i data-lucide="scale" class="icon"></i></span>NyayaVoice</a>
+        <p>Your Voice. Your Language. Your Justice.</p>
+      </div>
+      <div><h5>Platform</h5><a href="#" onclick="NV.newComplaint();return false">Report Incident</a><a href="#" onclick="NV.showPage('dashboard');return false">My Complaints</a><a href="#" onclick="NV.showPage('home');return false">How It Works</a></div>
+      <div><h5>Resources</h5><a href="#" onclick="NV.toast('Legal information library — demo')">Legal Information</a><a href="#" onclick="NV.showPage('home');setTimeout(()=>document.getElementById('about').scrollIntoView({behavior:'smooth'}),120);return false">Privacy</a><a href="#" onclick="NV.toggleA11y()">Accessibility</a><a href="#" onclick="NV.toast('Help center — demo')">Help</a></div>
+      <div><h5>Disclaimer</h5><p class="foot-legal">AI-assisted system. Human verification required. This is a demonstration product and is not an official government portal.</p></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 NyayaVoice. Demonstration build with sample data.</span><span>Made for multilingual legal access in India.</span></div>
+  </div>
+</footer>
+
+<script src="/app.js"></script>
+<script src="/i18n.js"></script>
+</body>
+</html>
