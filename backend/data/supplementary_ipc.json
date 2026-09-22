@@ -1,0 +1,43 @@
+{
+  "_meta": {
+    "note": "IPC sections referenced by the rule base but absent from the uploaded dataset (the dataset covers 320 of the 511 IPC sections). Text summarised from the bare act and marked source='curated' so the officer can tell it apart from dataset-derived text."
+  },
+  "sections": {
+    "34": {
+      "offence_name": "Acts done by several persons in furtherance of common intention",
+      "description": "When a criminal act is done by several persons in furtherance of the common intention of all, each of such persons is liable for that act in the same manner as if it were done by him alone.",
+      "punishment": "Not a substantive offence - read with the substantive section charged",
+      "keywords": ["common intention", "together", "several persons", "jointly", "acted together"]
+    },
+    "120B": {
+      "offence_name": "Punishment of criminal conspiracy",
+      "description": "Whoever is a party to a criminal conspiracy to commit an offence punishable with death, imprisonment for life or rigorous imprisonment for a term of two years or upwards, shall, where no express provision is made, be punished in the same manner as if he had abetted such offence. A party to any other criminal conspiracy shall be punished with imprisonment of either description for a term not exceeding six months, or with fine, or with both.",
+      "punishment": "As for abetment of the offence conspired; otherwise up to 6 months, or fine, or both",
+      "keywords": ["conspiracy", "planned together", "agreement", "in collusion", "hatched a plan"]
+    },
+    "143": {
+      "offence_name": "Punishment for being a member of an unlawful assembly",
+      "description": "Whoever is a member of an unlawful assembly, shall be punished with imprisonment of either description for a term which may extend to six months, or with fine, or with both.",
+      "punishment": "Up to 6 months imprisonment, or fine, or both",
+      "keywords": ["unlawful assembly", "group of five", "mob", "gathered", "common object"]
+    },
+    "354A": {
+      "offence_name": "Sexual harassment and punishment for sexual harassment",
+      "description": "A man committing any of the following acts - physical contact and advances involving unwelcome and explicit sexual overtures; a demand or request for sexual favours; showing pornography against the will of a woman; or making sexually coloured remarks - is guilty of the offence of sexual harassment.",
+      "punishment": "Up to 3 years rigorous imprisonment, or fine, or both, depending on the clause; sexually coloured remarks - up to 1 year, or fine, or both",
+      "keywords": ["sexual harassment", "unwelcome", "sexual favours", "obscene remarks", "advances", "comments"]
+    },
+    "354C": {
+      "offence_name": "Voyeurism",
+      "description": "Any man who watches, or captures the image of, a woman engaging in a private act in circumstances where she would usually have the expectation of not being observed, or disseminates such an image, commits the offence of voyeurism.",
+      "punishment": "First conviction: 1 to 3 years and fine; subsequent conviction: 3 to 7 years and fine",
+      "keywords": ["voyeurism", "recorded", "secret camera", "private act", "filmed", "watched"]
+    },
+    "354D": {
+      "offence_name": "Stalking",
+      "description": "Any man who follows a woman and contacts, or attempts to contact, such woman to foster personal interaction repeatedly despite a clear indication of disinterest, or monitors the use by a woman of the internet, email or any other form of electronic communication, commits the offence of stalking.",
+      "punishment": "First conviction: up to 3 years and fine; subsequent conviction: up to 5 years and fine",
+      "keywords": ["stalking", "follows me", "repeatedly contacts", "monitors", "waits outside", "despite refusal"]
+    }
+  }
+}

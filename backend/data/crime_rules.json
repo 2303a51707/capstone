@@ -1,0 +1,3153 @@
+{
+  "_meta": {
+    "note": "Explainable rule layer for crime classification and provision shortlisting. Every provision carries the plain-language reason shown to the user, so no suggestion is a black box. Codes: 'IPC:<n>' resolves against the statute knowledge base built from the uploaded dataset; 'X:<code>' resolves against extra_provisions.json.",
+    "scoring": "category_score = 1.0 per strong keyword hit + 0.35 per weak hit, minus 0.9 per negative hit; provision_score = category_score * provision.weight, gated by 'requires' elements."
+  },
+  "categories": [
+    {
+      "id": "theft",
+      "label": "Theft",
+      "icon": "smartphone",
+      "strong": [
+        "stole",
+        "stolen",
+        "theft",
+        "thief",
+        "pickpocket",
+        "pick pocket",
+        "picked my pocket",
+        "took my",
+        "taken away my",
+        "removed from my pocket",
+        "took it from my bag",
+        "someone took",
+        "has been stolen",
+        "got stolen",
+        "robbed me of my"
+      ],
+      "weak": [
+        "missing",
+        "not there",
+        "disappeared",
+        "gone",
+        "vanished",
+        "without my knowledge",
+        "without permission",
+        "without my consent"
+      ],
+      "negative": [
+        "i lost",
+        "i misplaced",
+        "i forgot",
+        "i dropped"
+      ],
+      "elements": [
+        {
+          "id": "movable_property",
+          "label": "Movable property identified",
+          "any": [
+            "phone",
+            "mobile",
+            "purse",
+            "wallet",
+            "bag",
+            "laptop",
+            "cash",
+            "money",
+            "rupees",
+            "gold",
+            "chain",
+            "jewellery",
+            "jewelry",
+            "ornaments",
+            "watch",
+            "documents",
+            "cycle",
+            "bicycle",
+            "cattle",
+            "buffalo",
+            "goat",
+            "grain",
+            "cable",
+            "wire",
+            "battery"
+          ]
+        },
+        {
+          "id": "without_consent",
+          "label": "Taken without consent of the possessor",
+          "any": [
+            "without my consent",
+            "without permission",
+            "without asking",
+            "without my knowledge",
+            "stole",
+            "stolen",
+            "took",
+            "taken"
+          ]
+        },
+        {
+          "id": "dwelling",
+          "label": "Taken from a dwelling house / building",
+          "any": [
+            "from my house",
+            "in my house",
+            "at home",
+            "from the room",
+            "from my shop",
+            "inside the house",
+            "from my flat",
+            "from the office",
+            "from the temple"
+          ]
+        },
+        {
+          "id": "servant",
+          "label": "Taken by an employee / person in service",
+          "any": [
+            "my servant",
+            "maid",
+            "driver",
+            "employee",
+            "worker",
+            "helper",
+            "staff"
+          ]
+        },
+        {
+          "id": "public_place",
+          "label": "Occurred in a public place",
+          "any": [
+            "bus",
+            "train",
+            "station",
+            "market",
+            "road",
+            "street",
+            "temple",
+            "crowd",
+            "festival",
+            "footpath",
+            "bus stop",
+            "railway"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:379",
+          "weight": 1.0,
+          "reason": "The complaint describes movable property being taken out of the complainant's possession without consent, which is the core element of theft."
+        },
+        {
+          "code": "IPC:380",
+          "weight": 0.85,
+          "requires": [
+            "dwelling"
+          ],
+          "reason": "The property was taken from a dwelling house, building or tent, which is an aggravated form of theft."
+        },
+        {
+          "code": "IPC:381",
+          "weight": 0.8,
+          "requires": [
+            "servant"
+          ],
+          "reason": "The complaint indicates the property was taken by a clerk or servant in the complainant's employment."
+        },
+        {
+          "code": "IPC:411",
+          "weight": 0.4,
+          "requires": [
+            "recovered_from_person"
+          ],
+          "reason": "If the stolen property is later found in another person's possession, receiving stolen property may also arise."
+        }
+      ],
+      "advisory": "Under BNS 303(2) the value of the stolen property matters: theft below Rs. 5,000 by a first-time offender has been held to be non-cognizable, which changes how the complaint is registered. Record the approximate value."
+    },
+    {
+      "id": "snatching",
+      "label": "Snatching",
+      "icon": "hand",
+      "strong": [
+        "snatched",
+        "snatch",
+        "grabbed my",
+        "pulled my chain",
+        "pulled from my hand",
+        "chain snatching",
+        "yanked",
+        "tore off my",
+        "grabbed from my neck",
+        "took from my hand and ran"
+      ],
+      "weak": [
+        "bike",
+        "motorcycle",
+        "two wheeler",
+        "suddenly",
+        "came from behind",
+        "sped away",
+        "ran away with"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "sudden_force",
+          "label": "Sudden or forcible seizing",
+          "any": [
+            "snatched",
+            "grabbed",
+            "pulled",
+            "yanked",
+            "suddenly",
+            "forcibly",
+            "in a moment"
+          ]
+        },
+        {
+          "id": "from_person",
+          "label": "Taken directly from the person or their possession",
+          "any": [
+            "from my hand",
+            "from my neck",
+            "from my ear",
+            "from my pocket",
+            "from my bag",
+            "i was holding",
+            "i was wearing"
+          ]
+        },
+        {
+          "id": "vehicle_used",
+          "label": "Offenders used a vehicle to flee",
+          "any": [
+            "bike",
+            "motorcycle",
+            "scooter",
+            "two wheeler",
+            "car",
+            "sped away",
+            "rode away",
+            "drove away"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "X:BNS304",
+          "weight": 1.0,
+          "reason": "The property was seized suddenly and forcibly from the complainant's person, which is snatching - a distinct offence created by the BNS, 2023 with no IPC equivalent."
+        },
+        {
+          "code": "IPC:379",
+          "weight": 0.7,
+          "reason": "Snatching is a form of theft, so the general theft provision is also engaged. For an offence before 1 July 2024 only the theft provision was available."
+        },
+        {
+          "code": "IPC:392",
+          "weight": 0.45,
+          "requires": [
+            "hurt_caused"
+          ],
+          "reason": "If force caused hurt or the fear of instant hurt during the taking, the offence may rise to robbery rather than snatching."
+        }
+      ]
+    },
+    {
+      "id": "robbery",
+      "label": "Robbery",
+      "icon": "swords",
+      "strong": [
+        "robbery",
+        "robbed",
+        "at knife point",
+        "at gun point",
+        "knife point",
+        "gunpoint",
+        "threatened me and took",
+        "beat me and took",
+        "forced me to give",
+        "held a knife"
+      ],
+      "weak": [
+        "weapon",
+        "knife",
+        "gun",
+        "pistol",
+        "sword",
+        "rod",
+        "threatened",
+        "assaulted",
+        "attacked"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "force_or_fear",
+          "label": "Force, or fear of instant hurt, used for the taking",
+          "any": [
+            "threatened",
+            "knife",
+            "gun",
+            "beat",
+            "hit",
+            "pushed",
+            "held me",
+            "at knife point",
+            "at gun point",
+            "forced"
+          ]
+        },
+        {
+          "id": "property_taken",
+          "label": "Property taken during the same incident",
+          "any": [
+            "took",
+            "taken",
+            "snatched",
+            "handed over",
+            "gave them",
+            "emptied my"
+          ]
+        },
+        {
+          "id": "hurt_caused",
+          "label": "Hurt caused during the robbery",
+          "any": [
+            "injured",
+            "bleeding",
+            "wound",
+            "beat me",
+            "hit me",
+            "hospital",
+            "stitches",
+            "fracture"
+          ]
+        },
+        {
+          "id": "five_or_more",
+          "label": "Five or more offenders (dacoity threshold)",
+          "any": [
+            "five",
+            "six",
+            "seven",
+            "eight",
+            "gang of",
+            "group of men",
+            "many people",
+            "several men"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:392",
+          "weight": 1.0,
+          "reason": "Property was taken using force or the fear of instant hurt, which converts theft into robbery.",
+          "requires": [
+            "force_or_fear",
+            "property_taken"
+          ]
+        },
+        {
+          "code": "IPC:394",
+          "weight": 0.7,
+          "requires": [
+            "hurt_caused",
+            "property_taken"
+          ],
+          "reason": "Hurt was voluntarily caused in the course of committing the robbery."
+        },
+        {
+          "code": "IPC:397",
+          "weight": 0.6,
+          "requires": [
+            "deadly_weapon",
+            "property_taken"
+          ],
+          "reason": "A deadly weapon appears to have been used at the time of the robbery."
+        },
+        {
+          "code": "IPC:395",
+          "weight": 0.5,
+          "requires": [
+            "five_or_more"
+          ],
+          "reason": "Where five or more persons conjointly commit robbery, the offence becomes dacoity."
+        }
+      ]
+    },
+    {
+      "id": "burglary",
+      "label": "House-breaking / Burglary",
+      "icon": "door-open",
+      "strong": [
+        "broke into",
+        "broke open",
+        "broke the lock",
+        "lock was broken",
+        "house was broken",
+        "entered my house",
+        "burglary",
+        "burgled",
+        "broke the door",
+        "broke the window",
+        "cut the grill",
+        "forced open"
+      ],
+      "weak": [
+        "at night",
+        "while we were away",
+        "when nobody was home",
+        "during the night",
+        "we were out of station"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "entry",
+          "label": "Entry into a house or building",
+          "any": [
+            "house",
+            "home",
+            "flat",
+            "shop",
+            "office",
+            "godown",
+            "room",
+            "building",
+            "premises"
+          ]
+        },
+        {
+          "id": "breaking",
+          "label": "Breaking, or entry by an unusual means",
+          "any": [
+            "broke",
+            "broken",
+            "cut",
+            "forced",
+            "climbed",
+            "removed the lock",
+            "opened the lock",
+            "through the window",
+            "through the roof"
+          ]
+        },
+        {
+          "id": "night",
+          "label": "Committed after sunset and before sunrise",
+          "any": [
+            "night",
+            "midnight",
+            "at 2 am",
+            "at 3 am",
+            "while sleeping",
+            "in the dark"
+          ]
+        },
+        {
+          "id": "theft_followed",
+          "label": "Property taken after entry",
+          "any": [
+            "stole",
+            "stolen",
+            "took",
+            "taken",
+            "missing",
+            "emptied",
+            "cash",
+            "gold",
+            "jewellery",
+            "locker",
+            "almirah"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:457",
+          "weight": 1.0,
+          "requires": [
+            "night"
+          ],
+          "reason": "Lurking house-trespass or house-breaking by night in order to commit an offence punishable with imprisonment."
+        },
+        {
+          "code": "IPC:454",
+          "weight": 0.9,
+          "reason": "House-breaking or lurking house-trespass in order to commit an offence."
+        },
+        {
+          "code": "IPC:380",
+          "weight": 0.95,
+          "requires": [
+            "theft_followed"
+          ],
+          "reason": "Property was taken from inside a dwelling house after the entry."
+        },
+        {
+          "code": "IPC:448",
+          "weight": 0.5,
+          "reason": "Entry into the complainant's house without lawful authority amounts to house-trespass."
+        }
+      ]
+    },
+    {
+      "id": "vehicle_theft",
+      "label": "Vehicle Theft",
+      "icon": "car",
+      "strong": [
+        "bike was stolen",
+        "car was stolen",
+        "vehicle stolen",
+        "scooter stolen",
+        "my bike is missing",
+        "motorcycle stolen",
+        "auto was stolen",
+        "vehicle theft",
+        "someone took my bike",
+        "stolen from the parking"
+      ],
+      "weak": [
+        "parked",
+        "parking",
+        "registration number",
+        "number plate",
+        "rc",
+        "insurance",
+        "chassis"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "vehicle",
+          "label": "Vehicle identified",
+          "any": [
+            "bike",
+            "motorcycle",
+            "scooter",
+            "scooty",
+            "car",
+            "auto",
+            "rickshaw",
+            "truck",
+            "lorry",
+            "tractor",
+            "cycle",
+            "bicycle",
+            "vehicle"
+          ]
+        },
+        {
+          "id": "parked",
+          "label": "Vehicle was parked / left at a place",
+          "any": [
+            "parked",
+            "parking",
+            "outside",
+            "in front of",
+            "at the stand",
+            "near the"
+          ]
+        },
+        {
+          "id": "registration",
+          "label": "Registration number available",
+          "any": [
+            "number",
+            "registration",
+            "ts",
+            "ap",
+            "ka",
+            "tn",
+            "mh",
+            "dl",
+            "kl"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:379",
+          "weight": 1.0,
+          "reason": "A motor vehicle is movable property; taking it without the owner's consent is theft."
+        },
+        {
+          "code": "IPC:411",
+          "weight": 0.35,
+          "reason": "Relevant at the recovery stage if the vehicle is found in another person's possession."
+        }
+      ],
+      "advisory": "Record the registration number, chassis number, engine number, make/model and colour. These are required for the vehicle to be entered in the national stolen-vehicle database."
+    },
+    {
+      "id": "lost_property",
+      "label": "Lost Property (no offence disclosed)",
+      "icon": "search",
+      "strong": [
+        "i lost my",
+        "i have lost",
+        "i misplaced",
+        "misplaced my",
+        "it fell somewhere",
+        "i dropped my",
+        "i left it in",
+        "i forgot my",
+        "cannot find my",
+        "unable to find my"
+      ],
+      "weak": [
+        "somewhere",
+        "do not remember where",
+        "may have fallen",
+        "certificate",
+        "licence",
+        "license",
+        "passport",
+        "aadhaar",
+        "pan card",
+        "documents"
+      ],
+      "negative": [
+        "stole",
+        "stolen",
+        "snatched",
+        "took it from me",
+        "pickpocket"
+      ],
+      "elements": [
+        {
+          "id": "no_taker",
+          "label": "No person is alleged to have taken the property",
+          "any": [
+            "lost",
+            "misplaced",
+            "dropped",
+            "fell",
+            "forgot",
+            "left behind"
+          ]
+        },
+        {
+          "id": "documents",
+          "label": "Documents / certificates involved",
+          "any": [
+            "aadhaar",
+            "pan",
+            "passport",
+            "licence",
+            "license",
+            "certificate",
+            "marksheet",
+            "id card",
+            "ration card",
+            "atm card",
+            "cheque book",
+            "sim"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "X:LOSTPROP",
+          "weight": 1.0,
+          "reason": "On the facts stated, the property was mislaid rather than taken by any person, so no penal offence is disclosed and a lost-property acknowledgement is the correct record."
+        }
+      ],
+      "advisory": "A lost-property acknowledgement is sufficient for duplicate documents, SIM re-issue and insurance. If it later emerges that a person took the property, the report should be converted into a theft case.",
+      "requires_elements": [
+        "no_taker"
+      ]
+    },
+    {
+      "id": "assault_hurt",
+      "label": "Assault / Causing Hurt",
+      "icon": "shield-alert",
+      "strong": [
+        "beat me",
+        "beat him",
+        "beat her",
+        "hit me",
+        "hit him",
+        "assaulted",
+        "attacked me",
+        "punched",
+        "slapped",
+        "kicked",
+        "pushed me",
+        "thrashed",
+        "manhandled",
+        "caught my collar"
+      ],
+      "weak": [
+        "injury",
+        "injured",
+        "wound",
+        "pain",
+        "bruise",
+        "swelling",
+        "bleeding",
+        "hospital",
+        "treatment",
+        "stitches"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "hurt",
+          "label": "Bodily pain or injury caused",
+          "any": [
+            "injured",
+            "injury",
+            "pain",
+            "wound",
+            "bleeding",
+            "bruise",
+            "swelling",
+            "hurt",
+            "hospital",
+            "treatment"
+          ]
+        },
+        {
+          "id": "weapon",
+          "label": "Weapon or dangerous means used",
+          "any": [
+            "knife",
+            "stick",
+            "rod",
+            "stone",
+            "iron",
+            "blade",
+            "sword",
+            "hammer",
+            "bottle",
+            "acid",
+            "gun",
+            "pistol",
+            "sickle",
+            "axe"
+          ]
+        },
+        {
+          "id": "grievous",
+          "label": "Injury appears grievous",
+          "any": [
+            "fracture",
+            "fractured",
+            "broken bone",
+            "broken arm",
+            "broken leg",
+            "unconscious",
+            "icu",
+            "surgery",
+            "operation",
+            "lost tooth",
+            "eye damage",
+            "permanent",
+            "admitted for"
+          ]
+        },
+        {
+          "id": "group",
+          "label": "Committed by a group of persons",
+          "any": [
+            "together",
+            "all of them",
+            "group",
+            "four of them",
+            "five of them",
+            "gang",
+            "his friends",
+            "several people"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:323",
+          "weight": 1.0,
+          "requires": [
+            "hurt"
+          ],
+          "reason": "Bodily pain or injury was voluntarily caused to the complainant."
+        },
+        {
+          "code": "IPC:324",
+          "weight": 0.9,
+          "requires": [
+            "weapon",
+            "hurt"
+          ],
+          "reason": "Hurt was caused by a weapon or by means likely to cause death, which is an aggravated form."
+        },
+        {
+          "code": "IPC:325",
+          "weight": 0.85,
+          "requires": [
+            "grievous"
+          ],
+          "reason": "The described injury (such as a fracture or loss of function) may amount to grievous hurt."
+        },
+        {
+          "code": "IPC:326",
+          "weight": 0.85,
+          "requires": [
+            "grievous",
+            "weapon"
+          ],
+          "reason": "Grievous hurt caused by a dangerous weapon or means."
+        },
+        {
+          "code": "IPC:352",
+          "weight": 0.6,
+          "reason": "Use of criminal force or assault, where no injury is established."
+        },
+        {
+          "code": "IPC:34",
+          "weight": 0.45,
+          "requires": [
+            "group"
+          ],
+          "reason": "Where several persons acted together with a common intention, each is liable for the act."
+        },
+        {
+          "code": "IPC:147",
+          "weight": 0.4,
+          "requires": [
+            "five_or_more"
+          ],
+          "reason": "Where five or more persons formed an unlawful assembly and used force, rioting may be attracted."
+        }
+      ],
+      "advisory": "A medical examination report (MLC) is essential to determine whether the hurt is simple or grievous. The provision finally applied depends on that report."
+    },
+    {
+      "id": "criminal_intimidation",
+      "label": "Threat / Criminal Intimidation",
+      "icon": "message-square-warning",
+      "strong": [
+        "threatened",
+        "threatened me",
+        "threat",
+        "said he will kill",
+        "will kill me",
+        "warned me",
+        "will finish you",
+        "see you outside",
+        "will not spare",
+        "death threat",
+        "threatened to kill",
+        "abused and threatened"
+      ],
+      "weak": [
+        "afraid",
+        "scared",
+        "fear",
+        "frightened",
+        "dare not",
+        "harassing",
+        "calls me repeatedly"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "threat_content",
+          "label": "Threat of injury to person, reputation or property",
+          "any": [
+            "kill",
+            "murder",
+            "beat",
+            "burn",
+            "acid",
+            "harm",
+            "finish",
+            "destroy",
+            "damage",
+            "defame",
+            "spoil your name"
+          ]
+        },
+        {
+          "id": "threat_death",
+          "label": "Threat was to cause death or grievous hurt",
+          "any": [
+            "kill",
+            "murder",
+            "finish you",
+            "bury you",
+            "burn you",
+            "acid",
+            "shoot"
+          ]
+        },
+        {
+          "id": "anonymous",
+          "label": "Threat made anonymously",
+          "any": [
+            "unknown number",
+            "anonymous",
+            "did not reveal",
+            "unknown person called",
+            "hidden number",
+            "fake account"
+          ]
+        },
+        {
+          "id": "abuse",
+          "label": "Abusive language used in public",
+          "any": [
+            "abused",
+            "abusive",
+            "filthy language",
+            "in front of everyone",
+            "in public",
+            "shouted at me",
+            "insulted"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:506",
+          "weight": 1.0,
+          "reason": "A threat of injury was made with intent to cause alarm to the complainant."
+        },
+        {
+          "code": "IPC:507",
+          "weight": 0.5,
+          "requires": [
+            "anonymous"
+          ],
+          "reason": "The intimidation was conveyed anonymously or by concealed identity."
+        },
+        {
+          "code": "IPC:504",
+          "weight": 0.6,
+          "requires": [
+            "abuse"
+          ],
+          "reason": "Intentional insult with intent to provoke a breach of the peace."
+        },
+        {
+          "code": "IPC:503",
+          "weight": 0.4,
+          "reason": "The definitional provision for criminal intimidation, cited with the punishing section."
+        }
+      ]
+    },
+    {
+      "id": "harassment_woman",
+      "label": "Harassment / Offence against a Woman",
+      "icon": "user-round-x",
+      "strong": [
+        "eve teasing",
+        "molested",
+        "touched me",
+        "touched inappropriately",
+        "outraged my modesty",
+        "harassing me",
+        "sexual harassment",
+        "obscene comments",
+        "passed comments",
+        "stalking me",
+        "following me",
+        "vulgar messages",
+        "misbehaved with me",
+        "caught my hand"
+      ],
+      "weak": [
+        "uncomfortable",
+        "repeatedly",
+        "again and again",
+        "every day",
+        "on the way to college",
+        "on the way to office",
+        "messages",
+        "calls",
+        "photos"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "victim_woman",
+          "label": "Complainant or victim is a woman",
+          "any": [
+            "woman",
+            "girl",
+            "my daughter",
+            "my sister",
+            "my wife",
+            "she",
+            "her",
+            "lady",
+            "female"
+          ]
+        },
+        {
+          "id": "physical",
+          "label": "Physical contact or use of criminal force",
+          "any": [
+            "touched",
+            "held my hand",
+            "caught my",
+            "pulled me",
+            "grabbed",
+            "pushed",
+            "hugged",
+            "physical"
+          ]
+        },
+        {
+          "id": "stalking",
+          "label": "Repeatedly followed or contacted despite disinterest",
+          "any": [
+            "follows me",
+            "following me",
+            "waits outside",
+            "stalking",
+            "repeatedly calls",
+            "keeps messaging",
+            "monitors",
+            "watches me"
+          ]
+        },
+        {
+          "id": "obscene_media",
+          "label": "Photographs or videos involved",
+          "any": [
+            "photo",
+            "picture",
+            "video",
+            "recorded",
+            "morphed",
+            "posted",
+            "circulated",
+            "screenshot"
+          ]
+        },
+        {
+          "id": "minor",
+          "label": "Victim appears to be under 18 years",
+          "any": [
+            "minor",
+            "child",
+            "school student",
+            "15 year",
+            "16 year",
+            "17 year",
+            "14 year",
+            "13 year",
+            "12 year",
+            "underage"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:354",
+          "weight": 1.0,
+          "requires": [
+            "physical"
+          ],
+          "reason": "Criminal force was used against a woman with intent to outrage her modesty."
+        },
+        {
+          "code": "IPC:354A",
+          "weight": 0.95,
+          "reason": "The described conduct - unwelcome physical advances, sexually coloured remarks or demands - falls within sexual harassment."
+        },
+        {
+          "code": "IPC:354D",
+          "weight": 0.9,
+          "requires": [
+            "stalking"
+          ],
+          "reason": "The complainant describes being repeatedly followed or contacted despite a clear lack of interest."
+        },
+        {
+          "code": "IPC:509",
+          "weight": 0.8,
+          "reason": "Words, gestures or acts intended to insult the modesty of a woman."
+        },
+        {
+          "code": "IPC:354C",
+          "weight": 0.6,
+          "requires": [
+            "obscene_media"
+          ],
+          "reason": "Capturing or disseminating images in circumstances that violate privacy may amount to voyeurism."
+        },
+        {
+          "code": "X:IT66E",
+          "weight": 0.6,
+          "requires": [
+            "obscene_media"
+          ],
+          "reason": "Capturing or transmitting an image of a private area without consent is separately punishable under the IT Act."
+        },
+        {
+          "code": "X:POCSO",
+          "weight": 1.0,
+          "requires": [
+            "minor"
+          ],
+          "reason": "The victim appears to be a child, which makes the POCSO Act mandatorily applicable in addition to the BNS."
+        }
+      ],
+      "advisory": "Where the complainant is a woman, her statement should be recorded by a woman police officer. If the victim is a child, POCSO procedure and the Special Juvenile Police Unit apply, and reporting is mandatory."
+    },
+    {
+      "id": "domestic_violence",
+      "label": "Domestic Violence / Cruelty by Husband or Relatives",
+      "icon": "house",
+      "strong": [
+        "my husband beats",
+        "husband beat me",
+        "in-laws harass",
+        "mother in law",
+        "father in law",
+        "dowry",
+        "domestic violence",
+        "cruelty",
+        "harassed for dowry",
+        "thrown out of the house",
+        "husband and his family",
+        "sister in law",
+        "torture"
+      ],
+      "weak": [
+        "marriage",
+        "married",
+        "matrimonial",
+        "wife",
+        "husband",
+        "home",
+        "family",
+        "since marriage"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "matrimonial",
+          "label": "Domestic / matrimonial relationship",
+          "any": [
+            "husband",
+            "wife",
+            "in-laws",
+            "mother in law",
+            "father in law",
+            "married",
+            "marriage",
+            "matrimonial",
+            "sasural"
+          ]
+        },
+        {
+          "id": "dowry_demand",
+          "label": "Demand for dowry made",
+          "any": [
+            "dowry",
+            "demanded",
+            "asked for money",
+            "asked for gold",
+            "bike as gift",
+            "cash from my parents",
+            "additional"
+          ]
+        },
+        {
+          "id": "physical_cruelty",
+          "label": "Physical cruelty alleged",
+          "any": [
+            "beat",
+            "beaten",
+            "hit",
+            "assaulted",
+            "slapped",
+            "burn",
+            "injured",
+            "thrashed"
+          ]
+        },
+        {
+          "id": "death_involved",
+          "label": "Death of a woman within seven years of marriage",
+          "any": [
+            "died",
+            "death",
+            "dead body",
+            "passed away",
+            "hanged",
+            "burnt to death",
+            "no more"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:498A",
+          "weight": 1.0,
+          "requires": [
+            "matrimonial"
+          ],
+          "reason": "The complaint alleges cruelty by the husband or his relatives towards a married woman."
+        },
+        {
+          "code": "X:DP3",
+          "weight": 0.85,
+          "requires": [
+            "dowry_demand"
+          ],
+          "reason": "A demand for dowry is separately punishable under the Dowry Prohibition Act, 1961."
+        },
+        {
+          "code": "IPC:323",
+          "weight": 0.7,
+          "requires": [
+            "physical_cruelty"
+          ],
+          "reason": "Physical hurt was voluntarily caused to the complainant."
+        },
+        {
+          "code": "IPC:406",
+          "weight": 0.55,
+          "requires": [
+            "stridhan"
+          ],
+          "reason": "Retention of the woman's stridhan (her own jewellery and articles) may amount to criminal breach of trust."
+        },
+        {
+          "code": "IPC:304B",
+          "weight": 0.9,
+          "requires": [
+            "death_involved",
+            "dowry_demand"
+          ],
+          "reason": "Death of a woman in connection with a dowry demand within seven years of marriage is dealt with as dowry death."
+        },
+        {
+          "code": "X:DVACT",
+          "weight": 0.8,
+          "requires": [
+            "matrimonial"
+          ],
+          "reason": "Civil reliefs - protection, residence, maintenance and custody orders - are available in parallel and the police must inform the aggrieved woman of them."
+        }
+      ],
+      "advisory": "This category carries both a criminal and a civil track. The complainant should be informed of the Protection Officer and the One Stop Centre in the district."
+    },
+    {
+      "id": "cyber_fraud",
+      "label": "Cyber Fraud / Online Financial Fraud",
+      "icon": "smartphone-nfc",
+      "strong": [
+        "otp",
+        "upi",
+        "online fraud",
+        "debited from my account",
+        "money was debited",
+        "fake link",
+        "phishing",
+        "cyber fraud",
+        "digital arrest",
+        "fake customer care",
+        "screen sharing",
+        "anydesk",
+        "credit card fraud",
+        "account was hacked",
+        "netbanking",
+        "fake website",
+        "investment app",
+        "trading app fraud",
+        "whatsapp fraud",
+        "telegram task"
+      ],
+      "weak": [
+        "bank",
+        "account",
+        "transaction",
+        "transferred",
+        "google pay",
+        "phonepe",
+        "paytm",
+        "atm",
+        "app",
+        "link",
+        "message",
+        "call",
+        "online"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "electronic_means",
+          "label": "Committed using a phone, computer or the internet",
+          "any": [
+            "online",
+            "phone call",
+            "whatsapp",
+            "telegram",
+            "link",
+            "website",
+            "app",
+            "sms",
+            "email",
+            "internet",
+            "upi",
+            "netbanking"
+          ]
+        },
+        {
+          "id": "deception",
+          "label": "The complainant was deceived into parting with money or credentials",
+          "any": [
+            "told me",
+            "said he was",
+            "claimed to be",
+            "pretended",
+            "asked for otp",
+            "asked me to",
+            "convinced me",
+            "promised",
+            "fake"
+          ]
+        },
+        {
+          "id": "credentials",
+          "label": "OTP, password or unique identifier was misused",
+          "any": [
+            "otp",
+            "password",
+            "pin",
+            "cvv",
+            "upi pin",
+            "aadhaar",
+            "login",
+            "credentials",
+            "account details"
+          ]
+        },
+        {
+          "id": "loss",
+          "label": "Financial loss occurred",
+          "any": [
+            "debited",
+            "deducted",
+            "lost",
+            "transferred",
+            "rupees",
+            "lakhs",
+            "thousand",
+            "amount",
+            "money"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:420",
+          "weight": 1.0,
+          "requires": [
+            "deception",
+            "loss"
+          ],
+          "reason": "The complainant was deceived and thereby dishonestly induced to part with money or property."
+        },
+        {
+          "code": "X:IT66D",
+          "weight": 1.0,
+          "requires": [
+            "electronic_means"
+          ],
+          "reason": "Cheating by personation using a communication device or computer resource is a distinct offence under the IT Act."
+        },
+        {
+          "code": "X:IT66C",
+          "weight": 0.85,
+          "requires": [
+            "credentials"
+          ],
+          "reason": "Fraudulent use of another person's password, OTP or unique identification feature is identity theft under the IT Act."
+        },
+        {
+          "code": "IPC:419",
+          "weight": 0.6,
+          "requires": [
+            "deception"
+          ],
+          "reason": "Cheating by personation, where the accused pretended to be someone else."
+        },
+        {
+          "code": "IPC:406",
+          "weight": 0.4,
+          "reason": "Where money was entrusted and then dishonestly misappropriated, criminal breach of trust may also arise."
+        }
+      ],
+      "advisory": "Time is critical. The complainant should immediately call the national cyber-crime helpline 1930 and file at cybercrime.gov.in so that the transaction can be put on hold. Preserve SMS, transaction IDs, the beneficiary account number and screenshots."
+    },
+    {
+      "id": "cheating_fraud",
+      "label": "Cheating / Fraud",
+      "icon": "handshake",
+      "strong": [
+        "cheated",
+        "cheated me",
+        "fraud",
+        "duped",
+        "did not return my money",
+        "took my money and",
+        "false promise",
+        "fake documents",
+        "forged",
+        "did not deliver",
+        "collected money and disappeared",
+        "ponzi",
+        "chit fund",
+        "double the money",
+        "job fraud",
+        "fake job"
+      ],
+      "weak": [
+        "agreement",
+        "promised",
+        "advance",
+        "booking",
+        "deposit",
+        "land",
+        "plot",
+        "flat",
+        "business",
+        "partner",
+        "loan",
+        "cheque bounced"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "inducement",
+          "label": "The complainant was induced to part with property",
+          "any": [
+            "gave him",
+            "paid",
+            "transferred",
+            "handed over",
+            "advance",
+            "deposited",
+            "invested"
+          ]
+        },
+        {
+          "id": "dishonest_intent",
+          "label": "Indication of dishonest intention from the start",
+          "any": [
+            "never intended",
+            "fake",
+            "forged",
+            "false",
+            "did not exist",
+            "absconding",
+            "disappeared",
+            "switched off",
+            "no such"
+          ]
+        },
+        {
+          "id": "forgery",
+          "label": "Forged or false document used",
+          "any": [
+            "forged",
+            "fake document",
+            "false document",
+            "duplicate",
+            "fabricated",
+            "signature",
+            "stamp paper",
+            "fake registration"
+          ]
+        },
+        {
+          "id": "entrustment",
+          "label": "Property was entrusted before misappropriation",
+          "any": [
+            "entrusted",
+            "gave for safekeeping",
+            "kept with him",
+            "handed over for",
+            "partnership",
+            "in trust"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:420",
+          "weight": 1.0,
+          "requires": [
+            "inducement"
+          ],
+          "reason": "The complainant was dishonestly induced to deliver property as a result of deception."
+        },
+        {
+          "code": "IPC:406",
+          "weight": 0.85,
+          "requires": [
+            "entrustment"
+          ],
+          "reason": "Property entrusted to the accused was dishonestly converted to their own use."
+        },
+        {
+          "code": "IPC:468",
+          "weight": 0.75,
+          "requires": [
+            "forgery"
+          ],
+          "reason": "A document appears to have been forged for the purpose of cheating."
+        },
+        {
+          "code": "IPC:471",
+          "weight": 0.7,
+          "requires": [
+            "forgery"
+          ],
+          "reason": "A forged document appears to have been used as genuine."
+        },
+        {
+          "code": "IPC:465",
+          "weight": 0.6,
+          "requires": [
+            "forgery"
+          ],
+          "reason": "The making of a false document is punishable as forgery."
+        },
+        {
+          "code": "IPC:120B",
+          "weight": 0.4,
+          "requires": [
+            "multiple_accused"
+          ],
+          "reason": "Where two or more persons agreed to commit the offence, criminal conspiracy may be added."
+        }
+      ],
+      "advisory": "A purely contractual breach is not a criminal offence. The distinguishing feature is dishonest intention at the time the promise was made - the officer should look for that on the facts."
+    },
+    {
+      "id": "criminal_breach_trust",
+      "label": "Criminal Breach of Trust",
+      "icon": "briefcase",
+      "strong": [
+        "misappropriated",
+        "breach of trust",
+        "entrusted",
+        "kept with him",
+        "did not return",
+        "refuses to return",
+        "sold my",
+        "used my money for",
+        "employee took the collection",
+        "cashier"
+      ],
+      "weak": [
+        "trust",
+        "safekeeping",
+        "custody",
+        "responsibility",
+        "in charge",
+        "handed over"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "entrustment",
+          "label": "Property or money was entrusted",
+          "any": [
+            "entrusted",
+            "gave",
+            "handed over",
+            "kept with",
+            "in his custody",
+            "responsible for",
+            "in charge of"
+          ]
+        },
+        {
+          "id": "conversion",
+          "label": "Dishonest conversion to own use",
+          "any": [
+            "did not return",
+            "refused to return",
+            "sold",
+            "used it",
+            "spent",
+            "misappropriated",
+            "kept it"
+          ]
+        },
+        {
+          "id": "servant",
+          "label": "By a clerk, servant or agent",
+          "any": [
+            "employee",
+            "servant",
+            "clerk",
+            "cashier",
+            "accountant",
+            "agent",
+            "manager",
+            "staff"
+          ]
+        },
+        {
+          "id": "public_servant",
+          "label": "By a public servant or banker",
+          "any": [
+            "public servant",
+            "government",
+            "bank",
+            "banker",
+            "official",
+            "officer"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:406",
+          "weight": 1.0,
+          "requires": [
+            "entrustment",
+            "conversion"
+          ],
+          "reason": "Property lawfully entrusted to the accused was dishonestly converted to their own use."
+        },
+        {
+          "code": "IPC:408",
+          "weight": 0.7,
+          "requires": [
+            "servant"
+          ],
+          "reason": "The breach of trust was committed by a clerk or servant."
+        },
+        {
+          "code": "IPC:409",
+          "weight": 0.7,
+          "requires": [
+            "public_servant"
+          ],
+          "reason": "The breach of trust was committed by a public servant, banker, merchant or agent."
+        },
+        {
+          "code": "IPC:403",
+          "weight": 0.5,
+          "reason": "Where there was no entrustment but property was found and dishonestly retained, misappropriation applies instead."
+        }
+      ]
+    },
+    {
+      "id": "property_damage",
+      "label": "Property Damage / Mischief",
+      "icon": "hammer",
+      "strong": [
+        "damaged my",
+        "broke my",
+        "destroyed",
+        "vandalised",
+        "vandalized",
+        "smashed",
+        "set fire",
+        "burnt my",
+        "cut my crops",
+        "damaged the vehicle",
+        "broke the windows",
+        "threw stones at my"
+      ],
+      "weak": [
+        "property",
+        "wall",
+        "fence",
+        "gate",
+        "compound",
+        "crop",
+        "tree",
+        "shop",
+        "signboard",
+        "loss of"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "damage",
+          "label": "Wrongful loss or damage caused",
+          "any": [
+            "damaged",
+            "broke",
+            "destroyed",
+            "smashed",
+            "burnt",
+            "cut",
+            "uprooted",
+            "spoiled"
+          ]
+        },
+        {
+          "id": "fire",
+          "label": "Fire or explosive substance used",
+          "any": [
+            "fire",
+            "burnt",
+            "burned",
+            "set alight",
+            "petrol",
+            "kerosene",
+            "explosive",
+            "blast"
+          ]
+        },
+        {
+          "id": "value",
+          "label": "Value of damage stated",
+          "any": [
+            "rupees",
+            "worth",
+            "lakhs",
+            "thousand",
+            "cost",
+            "value"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:427",
+          "weight": 1.0,
+          "requires": [
+            "damage"
+          ],
+          "reason": "Wrongful loss or damage was caused to the complainant's property."
+        },
+        {
+          "code": "IPC:435",
+          "weight": 0.8,
+          "requires": [
+            "fire"
+          ],
+          "reason": "Mischief committed by fire or an explosive substance with intent to cause damage."
+        },
+        {
+          "code": "IPC:436",
+          "weight": 0.7,
+          "requires": [
+            "fire",
+            "dwelling"
+          ],
+          "reason": "Mischief by fire with intent to destroy a house or a building used as a dwelling or place of worship."
+        },
+        {
+          "code": "IPC:425",
+          "weight": 0.5,
+          "reason": "The definitional provision for mischief, cited with the punishing section."
+        }
+      ]
+    },
+    {
+      "id": "trespass",
+      "label": "Criminal Trespass / Encroachment",
+      "icon": "fence",
+      "strong": [
+        "trespass",
+        "entered my land",
+        "entered my property",
+        "occupied my land",
+        "encroached",
+        "illegally occupying",
+        "came into my house without",
+        "forcibly entered",
+        "took possession of my"
+      ],
+      "weak": [
+        "land",
+        "plot",
+        "boundary",
+        "compound",
+        "survey number",
+        "property",
+        "possession",
+        "dispute"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "entry",
+          "label": "Entry into property in the complainant's possession",
+          "any": [
+            "entered",
+            "came into",
+            "occupied",
+            "took possession",
+            "encroached",
+            "walked in"
+          ]
+        },
+        {
+          "id": "dwelling",
+          "label": "Entry was into a dwelling house",
+          "any": [
+            "house",
+            "home",
+            "room",
+            "flat",
+            "residence",
+            "bedroom"
+          ]
+        },
+        {
+          "id": "intent_offence",
+          "label": "Entry was for the purpose of an offence or intimidation",
+          "any": [
+            "to threaten",
+            "to beat",
+            "to assault",
+            "to intimidate",
+            "to steal",
+            "abused",
+            "with weapons"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:447",
+          "weight": 1.0,
+          "requires": [
+            "entry"
+          ],
+          "reason": "Entry into property in the complainant's possession with intent to intimidate, insult or annoy is criminal trespass."
+        },
+        {
+          "code": "IPC:448",
+          "weight": 0.85,
+          "requires": [
+            "dwelling"
+          ],
+          "reason": "The trespass was into a building used as a human dwelling, which is house-trespass."
+        },
+        {
+          "code": "IPC:452",
+          "weight": 0.7,
+          "requires": [
+            "dwelling",
+            "intent_offence"
+          ],
+          "reason": "House-trespass after preparation for causing hurt, assault or wrongful restraint."
+        }
+      ],
+      "advisory": "Title and possession disputes over land are frequently civil in nature. A criminal provision applies only where the entry was made with the intent described in the section."
+    },
+    {
+      "id": "missing_person",
+      "label": "Missing Person",
+      "icon": "user-search",
+      "strong": [
+        "missing",
+        "is missing",
+        "did not return home",
+        "has not come back",
+        "cannot be traced",
+        "untraceable",
+        "left the house and did not return",
+        "went out and never came back",
+        "has disappeared",
+        "no information about"
+      ],
+      "weak": [
+        "son",
+        "daughter",
+        "wife",
+        "husband",
+        "brother",
+        "sister",
+        "father",
+        "mother",
+        "child",
+        "searched everywhere",
+        "relatives",
+        "phone switched off"
+      ],
+      "negative": [
+        "my phone is missing",
+        "my bag is missing",
+        "my purse is missing",
+        "my documents are missing",
+        "my bike is missing",
+        "my vehicle is missing",
+        "my cycle is missing",
+        "my car is missing",
+        "my jewellery is missing",
+        "my cash is missing",
+        "my gold is missing",
+        "is missing since"
+      ],
+      "elements": [
+        {
+          "id": "person_missing",
+          "label": "A person, not property, is missing",
+          "any": [
+            "son",
+            "daughter",
+            "wife",
+            "husband",
+            "brother",
+            "sister",
+            "mother",
+            "father",
+            "child",
+            "boy",
+            "girl",
+            "person",
+            "he has not",
+            "she has not"
+          ]
+        },
+        {
+          "id": "minor",
+          "label": "The missing person is a child under 18",
+          "any": [
+            "child",
+            "minor",
+            "school",
+            "years old",
+            "my son aged",
+            "my daughter aged",
+            "baby",
+            "kid",
+            "student",
+            "aged 5",
+            "aged 6",
+            "aged 7",
+            "aged 8",
+            "aged 9",
+            "aged 10",
+            "aged 11",
+            "aged 12",
+            "aged 13",
+            "aged 14",
+            "aged 15",
+            "aged 16",
+            "aged 17",
+            "class 8",
+            "class 9",
+            "class 10",
+            "schoolgirl",
+            "school boy"
+          ]
+        },
+        {
+          "id": "foul_play",
+          "label": "Suspicion of kidnapping or foul play",
+          "any": [
+            "kidnapped",
+            "taken away",
+            "someone took",
+            "threatened earlier",
+            "enmity",
+            "suspect",
+            "forcibly",
+            "abducted"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "X:MISSING",
+          "weight": 1.0,
+          "reason": "The report concerns a missing person and must be recorded immediately without waiting for any time period to elapse."
+        },
+        {
+          "code": "IPC:363",
+          "weight": 0.8,
+          "requires": [
+            "minor"
+          ],
+          "reason": "Where the missing person is a child, the Supreme Court's directions require an FIR on the presumption of possible kidnapping until the contrary appears."
+        },
+        {
+          "code": "IPC:365",
+          "weight": 0.6,
+          "requires": [
+            "foul_play"
+          ],
+          "reason": "Facts suggesting that the person was taken away against their will attract kidnapping or abduction with intent to confine."
+        },
+        {
+          "code": "IPC:366",
+          "weight": 0.5,
+          "requires": [
+            "foul_play",
+            "woman"
+          ],
+          "reason": "Kidnapping or abducting a woman to compel her marriage or for illicit intercourse."
+        }
+      ],
+      "advisory": "Record a full physical description, recent photograph, clothing worn, mobile number and the last-seen place and time. For a missing child, an FIR must be registered forthwith and the details uploaded to the national tracking portal.",
+      "requires_elements": [
+        "person_missing"
+      ]
+    },
+    {
+      "id": "kidnapping",
+      "label": "Kidnapping / Abduction",
+      "icon": "user-minus",
+      "strong": [
+        "kidnapped",
+        "kidnapping",
+        "abducted",
+        "taken away forcibly",
+        "took my child",
+        "held him captive",
+        "demanded ransom",
+        "ransom",
+        "forcibly took her",
+        "dragged into a car"
+      ],
+      "weak": [
+        "car",
+        "van",
+        "vehicle",
+        "unknown persons",
+        "gang",
+        "call demanding",
+        "phone call"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "taken_away",
+          "label": "Person taken away or enticed",
+          "any": [
+            "took",
+            "taken",
+            "dragged",
+            "forced into",
+            "enticed",
+            "lured",
+            "carried away"
+          ]
+        },
+        {
+          "id": "minor",
+          "label": "Victim is a minor or of unsound mind",
+          "any": [
+            "minor",
+            "child",
+            "under 18",
+            "years old",
+            "student",
+            "school",
+            "boy",
+            "girl"
+          ]
+        },
+        {
+          "id": "ransom",
+          "label": "Ransom demanded",
+          "any": [
+            "ransom",
+            "demanded money",
+            "asked for lakhs",
+            "pay or",
+            "money for release"
+          ]
+        },
+        {
+          "id": "woman",
+          "label": "Victim is a woman",
+          "any": [
+            "woman",
+            "girl",
+            "wife",
+            "daughter",
+            "sister",
+            "lady",
+            "she",
+            "her"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:363",
+          "weight": 1.0,
+          "requires": [
+            "taken_away"
+          ],
+          "reason": "A person was taken away from lawful guardianship or from India without consent."
+        },
+        {
+          "code": "IPC:364A",
+          "weight": 0.95,
+          "requires": [
+            "ransom"
+          ],
+          "reason": "Kidnapping accompanied by a demand for ransom is a distinct and graver offence."
+        },
+        {
+          "code": "IPC:366",
+          "weight": 0.8,
+          "requires": [
+            "woman"
+          ],
+          "reason": "Kidnapping or abducting a woman to compel her marriage or for illicit intercourse."
+        },
+        {
+          "code": "IPC:365",
+          "weight": 0.7,
+          "reason": "Kidnapping or abducting with intent secretly and wrongfully to confine the person."
+        },
+        {
+          "code": "IPC:362",
+          "weight": 0.5,
+          "reason": "The definitional provision for abduction, cited with the punishing section."
+        }
+      ]
+    },
+    {
+      "id": "wrongful_restraint",
+      "label": "Wrongful Restraint / Confinement",
+      "icon": "lock",
+      "strong": [
+        "locked me",
+        "locked in a room",
+        "confined",
+        "did not allow me to leave",
+        "blocked my way",
+        "stopped me from going",
+        "held me there",
+        "kept me for hours",
+        "would not let me out"
+      ],
+      "weak": [
+        "room",
+        "house",
+        "office",
+        "gate",
+        "door",
+        "hours"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "restraint",
+          "label": "Movement obstructed",
+          "any": [
+            "blocked",
+            "stopped",
+            "obstructed",
+            "did not allow",
+            "prevented me from"
+          ]
+        },
+        {
+          "id": "confinement",
+          "label": "Confined within limits",
+          "any": [
+            "locked",
+            "confined",
+            "kept inside",
+            "shut in",
+            "could not come out",
+            "held captive"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:341",
+          "weight": 1.0,
+          "requires": [
+            "restraint"
+          ],
+          "reason": "The complainant was voluntarily obstructed from proceeding in a direction they had a right to proceed in."
+        },
+        {
+          "code": "IPC:342",
+          "weight": 0.95,
+          "requires": [
+            "confinement"
+          ],
+          "reason": "The complainant was wrongfully confined within circumscribing limits."
+        }
+      ]
+    },
+    {
+      "id": "rash_driving",
+      "label": "Road Accident / Rash and Negligent Driving",
+      "icon": "car-front",
+      "strong": [
+        "hit by a car",
+        "hit by a bike",
+        "accident",
+        "ran over",
+        "knocked down",
+        "rash driving",
+        "drove rashly",
+        "hit and run",
+        "collided",
+        "dashed my vehicle",
+        "vehicle hit me"
+      ],
+      "weak": [
+        "road",
+        "highway",
+        "signal",
+        "speed",
+        "overtaking",
+        "helmet",
+        "ambulance",
+        "hospital",
+        "injury",
+        "drunk"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "vehicle_involved",
+          "label": "A motor vehicle was involved",
+          "any": [
+            "car",
+            "bike",
+            "lorry",
+            "truck",
+            "bus",
+            "auto",
+            "tractor",
+            "vehicle",
+            "scooter",
+            "van"
+          ]
+        },
+        {
+          "id": "injury",
+          "label": "Injury caused",
+          "any": [
+            "injured",
+            "injury",
+            "fracture",
+            "bleeding",
+            "hospital",
+            "unconscious",
+            "wound",
+            "admitted"
+          ]
+        },
+        {
+          "id": "death",
+          "label": "Death resulted",
+          "any": [
+            "died",
+            "death",
+            "spot dead",
+            "passed away",
+            "expired",
+            "no more",
+            "dead"
+          ]
+        },
+        {
+          "id": "fled",
+          "label": "The driver fled without helping",
+          "any": [
+            "ran away",
+            "fled",
+            "did not stop",
+            "escaped",
+            "drove away",
+            "hit and run",
+            "left me there"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:279",
+          "weight": 1.0,
+          "requires": [
+            "vehicle_involved"
+          ],
+          "reason": "Driving on a public way in a manner rash or negligent so as to endanger human life."
+        },
+        {
+          "code": "IPC:337",
+          "weight": 0.85,
+          "requires": [
+            "injury"
+          ],
+          "reason": "Hurt was caused by an act so rash or negligent as to endanger human life or personal safety."
+        },
+        {
+          "code": "IPC:338",
+          "weight": 0.8,
+          "requires": [
+            "injury",
+            "grievous"
+          ],
+          "reason": "Grievous hurt was caused by a rash or negligent act."
+        },
+        {
+          "code": "IPC:304A",
+          "weight": 1.0,
+          "requires": [
+            "death"
+          ],
+          "reason": "Death was caused by a rash or negligent act not amounting to culpable homicide."
+        },
+        {
+          "code": "X:MV184",
+          "weight": 0.7,
+          "requires": [
+            "vehicle_involved"
+          ],
+          "reason": "Driving at a speed or in a manner dangerous to the public is separately punishable under the Motor Vehicles Act."
+        },
+        {
+          "code": "X:MV134",
+          "weight": 0.8,
+          "requires": [
+            "fled"
+          ],
+          "reason": "The driver failed in the statutory duty to stop, secure medical attention and report the accident."
+        }
+      ],
+      "advisory": "Under BNS 106 the punishment is higher where the driver escapes without reporting. Record the offending vehicle number, the exact spot, and whether an ambulance or a good samaritan assisted."
+    },
+    {
+      "id": "murder",
+      "label": "Homicide",
+      "icon": "triangle-alert",
+      "strong": [
+        "murdered",
+        "killed",
+        "was killed",
+        "stabbed to death",
+        "shot dead",
+        "hacked to death",
+        "beaten to death",
+        "dead body",
+        "found dead",
+        "strangled"
+      ],
+      "weak": [
+        "blood",
+        "body",
+        "post mortem",
+        "hospital declared",
+        "enmity",
+        "previous dispute"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "death",
+          "label": "Death of a person",
+          "any": [
+            "died",
+            "death",
+            "killed",
+            "dead body",
+            "no more",
+            "expired",
+            "spot dead"
+          ]
+        },
+        {
+          "id": "intent",
+          "label": "Indication of intention or knowledge",
+          "any": [
+            "deliberately",
+            "intentionally",
+            "planned",
+            "waited for",
+            "came with weapons",
+            "enmity",
+            "revenge",
+            "threatened earlier"
+          ]
+        },
+        {
+          "id": "weapon",
+          "label": "Weapon used",
+          "any": [
+            "knife",
+            "gun",
+            "pistol",
+            "sword",
+            "axe",
+            "rod",
+            "stone",
+            "sickle",
+            "hammer",
+            "poison",
+            "acid"
+          ]
+        },
+        {
+          "id": "mob",
+          "label": "Committed by a group of five or more",
+          "any": [
+            "mob",
+            "crowd",
+            "group of",
+            "five",
+            "six",
+            "seven",
+            "many people",
+            "villagers"
+          ]
+        },
+        {
+          "id": "attempt_only",
+          "label": "Victim survived (attempt)",
+          "any": [
+            "survived",
+            "somehow escaped",
+            "saved",
+            "in icu",
+            "critical",
+            "under treatment",
+            "still alive"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:302",
+          "weight": 1.0,
+          "requires": [
+            "death",
+            "intent"
+          ],
+          "reason": "The facts allege an intentional causing of death, which is murder."
+        },
+        {
+          "code": "IPC:304",
+          "weight": 0.7,
+          "requires": [
+            "death"
+          ],
+          "reason": "Where intention falls short of murder - for example a sudden quarrel without premeditation - the offence is culpable homicide not amounting to murder."
+        },
+        {
+          "code": "IPC:307",
+          "weight": 1.0,
+          "requires": [
+            "attempt_only"
+          ],
+          "reason": "An act was done with such intention or knowledge that, had death been caused, it would have been murder."
+        },
+        {
+          "code": "X:BNS103_2",
+          "weight": 0.8,
+          "requires": [
+            "mob",
+            "death"
+          ],
+          "reason": "Murder by a group of five or more on a ground such as caste, community or personal belief is separately dealt with under the BNS."
+        },
+        {
+          "code": "IPC:201",
+          "weight": 0.4,
+          "requires": [
+            "evidence_destroyed"
+          ],
+          "reason": "Where the body or evidence was concealed or destroyed, causing disappearance of evidence may also arise."
+        },
+        {
+          "code": "IPC:34",
+          "weight": 0.5,
+          "requires": [
+            "group"
+          ],
+          "reason": "Where several persons acted in furtherance of a common intention, each is liable for the act."
+        }
+      ],
+      "advisory": "This is a grave offence requiring immediate officer attention, inquest proceedings and a scene-of-crime team. This draft is only a record of what the informant stated."
+    },
+    {
+      "id": "extortion",
+      "label": "Extortion",
+      "icon": "banknote-x",
+      "strong": [
+        "extortion",
+        "demanded money by threatening",
+        "threatened me and demanded",
+        "pay or else",
+        "protection money",
+        "mamool",
+        "hafta",
+        "forced me to pay",
+        "demanding money regularly",
+        "blackmail",
+        "blackmailing"
+      ],
+      "weak": [
+        "threat",
+        "fear",
+        "money",
+        "amount",
+        "every month",
+        "photos",
+        "video",
+        "leak"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "fear_induced",
+          "label": "Complainant put in fear of injury",
+          "any": [
+            "threatened",
+            "fear",
+            "afraid",
+            "will harm",
+            "will kill",
+            "will leak",
+            "will tell",
+            "will spoil"
+          ]
+        },
+        {
+          "id": "delivery",
+          "label": "Money or property delivered, or demanded",
+          "any": [
+            "paid",
+            "gave",
+            "demanded",
+            "transferred",
+            "handed",
+            "asked for"
+          ]
+        },
+        {
+          "id": "fear_death",
+          "label": "Fear of death or grievous hurt induced",
+          "any": [
+            "kill",
+            "murder",
+            "finish",
+            "grievous",
+            "cut you",
+            "burn"
+          ]
+        },
+        {
+          "id": "obscene_media",
+          "label": "Private images used as leverage",
+          "any": [
+            "photo",
+            "video",
+            "screenshot",
+            "morphed",
+            "intimate",
+            "private picture"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:384",
+          "weight": 1.0,
+          "requires": [
+            "fear_induced",
+            "delivery"
+          ],
+          "reason": "The complainant was intentionally put in fear of injury and thereby induced to deliver property."
+        },
+        {
+          "code": "IPC:386",
+          "weight": 0.7,
+          "requires": [
+            "fear_death"
+          ],
+          "reason": "Extortion by putting a person in fear of death or grievous hurt."
+        },
+        {
+          "code": "IPC:506",
+          "weight": 0.6,
+          "reason": "The threat itself is separately punishable as criminal intimidation."
+        },
+        {
+          "code": "X:IT66E",
+          "weight": 0.6,
+          "requires": [
+            "obscene_media"
+          ],
+          "reason": "Where private images are involved, the IT Act privacy provision is also engaged."
+        }
+      ]
+    },
+    {
+      "id": "defamation",
+      "label": "Defamation",
+      "icon": "megaphone",
+      "strong": [
+        "defamed",
+        "defamation",
+        "spoiled my reputation",
+        "spread false",
+        "false allegations against me",
+        "posted false",
+        "character assassination",
+        "told everyone that i"
+      ],
+      "weak": [
+        "reputation",
+        "society",
+        "neighbours",
+        "social media",
+        "whatsapp group",
+        "video",
+        "post",
+        "false"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "imputation",
+          "label": "An imputation was made about the complainant",
+          "any": [
+            "said that i",
+            "told others",
+            "spread",
+            "posted",
+            "wrote",
+            "announced",
+            "alleged"
+          ]
+        },
+        {
+          "id": "publication",
+          "label": "It was published to third parties",
+          "any": [
+            "everyone",
+            "neighbours",
+            "society",
+            "group",
+            "public",
+            "social media",
+            "facebook",
+            "whatsapp",
+            "instagram",
+            "youtube"
+          ]
+        },
+        {
+          "id": "online",
+          "label": "Published in electronic form",
+          "any": [
+            "social media",
+            "facebook",
+            "whatsapp",
+            "instagram",
+            "youtube",
+            "online",
+            "post",
+            "video",
+            "status"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:500",
+          "weight": 1.0,
+          "requires": [
+            "imputation",
+            "publication"
+          ],
+          "reason": "An imputation harming the complainant's reputation was published to others."
+        },
+        {
+          "code": "IPC:499",
+          "weight": 0.5,
+          "reason": "The definitional provision for defamation, cited with the punishing section."
+        },
+        {
+          "code": "X:IT67",
+          "weight": 0.5,
+          "requires": [
+            "online",
+            "obscene"
+          ],
+          "reason": "Where the material published in electronic form is obscene, the IT Act provision is also engaged."
+        }
+      ],
+      "advisory": "Defamation is normally a non-cognizable offence pursued by private complaint before a Magistrate rather than by police FIR. The complainant should be informed of this route."
+    },
+    {
+      "id": "rioting",
+      "label": "Unlawful Assembly / Rioting",
+      "icon": "users",
+      "strong": [
+        "mob",
+        "riot",
+        "rioting",
+        "group attacked",
+        "crowd attacked",
+        "unlawful assembly",
+        "came in a group and",
+        "gathered and attacked",
+        "pelted stones"
+      ],
+      "weak": [
+        "group",
+        "people",
+        "village",
+        "community",
+        "weapons",
+        "sticks",
+        "stones",
+        "shouting"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "five_or_more",
+          "label": "Five or more persons",
+          "any": [
+            "five",
+            "six",
+            "seven",
+            "eight",
+            "ten",
+            "twenty",
+            "mob",
+            "crowd",
+            "group of",
+            "many people",
+            "villagers"
+          ]
+        },
+        {
+          "id": "force",
+          "label": "Force or violence used by the assembly",
+          "any": [
+            "attacked",
+            "beat",
+            "pelted",
+            "damaged",
+            "burnt",
+            "assaulted",
+            "destroyed"
+          ]
+        },
+        {
+          "id": "deadly_weapon",
+          "label": "Armed with deadly weapons",
+          "any": [
+            "sticks",
+            "rods",
+            "knives",
+            "swords",
+            "sickles",
+            "stones",
+            "weapons",
+            "axes"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:147",
+          "weight": 1.0,
+          "requires": [
+            "five_or_more",
+            "force"
+          ],
+          "reason": "Five or more persons used force in prosecution of a common object, which is rioting."
+        },
+        {
+          "code": "IPC:148",
+          "weight": 0.85,
+          "requires": [
+            "deadly_weapon"
+          ],
+          "reason": "Rioting while armed with a deadly weapon."
+        },
+        {
+          "code": "IPC:149",
+          "weight": 0.8,
+          "requires": [
+            "five_or_more"
+          ],
+          "reason": "Every member of the unlawful assembly is liable for the offence committed in prosecution of the common object."
+        },
+        {
+          "code": "IPC:143",
+          "weight": 0.5,
+          "requires": [
+            "five_or_more"
+          ],
+          "reason": "Being a member of an unlawful assembly."
+        }
+      ]
+    },
+    {
+      "id": "abetment_suicide",
+      "label": "Suicide / Abetment of Suicide",
+      "icon": "heart-crack",
+      "strong": [
+        "committed suicide",
+        "ended her life",
+        "ended his life",
+        "hanged himself",
+        "hanged herself",
+        "consumed poison",
+        "suicide note",
+        "took her own life"
+      ],
+      "weak": [
+        "harassment",
+        "torture",
+        "humiliation",
+        "depressed",
+        "note",
+        "before dying",
+        "constantly"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "suicide",
+          "label": "Death by suicide reported",
+          "any": [
+            "suicide",
+            "hanged",
+            "poison",
+            "ended life",
+            "killed himself",
+            "killed herself"
+          ]
+        },
+        {
+          "id": "instigation",
+          "label": "Harassment or instigation alleged",
+          "any": [
+            "harassed",
+            "harassment",
+            "tortured",
+            "humiliated",
+            "threatened",
+            "demanded",
+            "insulted",
+            "constantly",
+            "because of"
+          ]
+        },
+        {
+          "id": "matrimonial",
+          "label": "Matrimonial context",
+          "any": [
+            "husband",
+            "wife",
+            "in-laws",
+            "married",
+            "dowry",
+            "matrimonial"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "X:BNSS194",
+          "weight": 1.0,
+          "requires": [
+            "suicide"
+          ],
+          "reason": "An unnatural death requires an inquest under the procedural code before any offence is determined."
+        },
+        {
+          "code": "IPC:306",
+          "weight": 0.9,
+          "requires": [
+            "suicide",
+            "instigation"
+          ],
+          "reason": "Facts alleging instigation or harassment that drove the deceased to suicide attract abetment of suicide."
+        },
+        {
+          "code": "IPC:498A",
+          "weight": 0.7,
+          "requires": [
+            "matrimonial",
+            "instigation"
+          ],
+          "reason": "Cruelty by the husband or his relatives, where the deceased was a married woman."
+        },
+        {
+          "code": "IPC:304B",
+          "weight": 0.7,
+          "requires": [
+            "matrimonial",
+            "dowry_demand"
+          ],
+          "reason": "Death of a woman within seven years of marriage connected to a dowry demand is treated as dowry death."
+        }
+      ],
+      "advisory": "Handle with care and sensitivity. The informant should be offered support services. Nothing in this draft determines the cause of death, which is for the inquest and post-mortem to establish."
+    },
+    {
+      "id": "public_nuisance",
+      "label": "Public Nuisance / Obscene Behaviour",
+      "icon": "volume-2",
+      "strong": [
+        "drunk and creating",
+        "creating nuisance",
+        "obscene",
+        "abusing in public",
+        "urinating",
+        "loud music at night",
+        "public nuisance",
+        "misbehaving in the street",
+        "blocking the road"
+      ],
+      "weak": [
+        "neighbour",
+        "street",
+        "colony",
+        "daily",
+        "complained before",
+        "every night"
+      ],
+      "negative": [],
+      "elements": [
+        {
+          "id": "public_place",
+          "label": "Occurred in or near a public place",
+          "any": [
+            "street",
+            "road",
+            "public",
+            "colony",
+            "park",
+            "market",
+            "outside my house",
+            "temple",
+            "bus stop"
+          ]
+        },
+        {
+          "id": "obscene",
+          "label": "Obscene acts or words",
+          "any": [
+            "obscene",
+            "vulgar",
+            "filthy",
+            "abusive",
+            "indecent",
+            "nude",
+            "urinating"
+          ]
+        }
+      ],
+      "provisions": [
+        {
+          "code": "IPC:294",
+          "weight": 1.0,
+          "requires": [
+            "obscene",
+            "public_place"
+          ],
+          "reason": "Obscene acts or words in a public place to the annoyance of others."
+        },
+        {
+          "code": "IPC:504",
+          "weight": 0.6,
+          "reason": "Intentional insult with intent to provoke a breach of the peace."
+        },
+        {
+          "code": "IPC:341",
+          "weight": 0.4,
+          "requires": [
+            "restraint"
+          ],
+          "reason": "Where the complainant's movement was obstructed, wrongful restraint may also apply."
+        }
+      ]
+    }
+  ],
+  "shared_elements": [
+    {
+      "id": "deadly_weapon",
+      "label": "Deadly weapon involved",
+      "any": [
+        "knife",
+        "gun",
+        "pistol",
+        "revolver",
+        "sword",
+        "axe",
+        "sickle",
+        "iron rod",
+        "blade",
+        "katta",
+        "firearm"
+      ]
+    },
+    {
+      "id": "multiple_accused",
+      "label": "More than one person involved",
+      "any": [
+        "they",
+        "them",
+        "two persons",
+        "three persons",
+        "both of them",
+        "his friends",
+        "along with",
+        "group"
+      ]
+    },
+    {
+      "id": "five_or_more",
+      "label": "Five or more persons involved",
+      "any": [
+        "five",
+        "six",
+        "seven",
+        "eight",
+        "nine",
+        "ten",
+        "mob",
+        "crowd",
+        "gang of",
+        "many people"
+      ]
+    },
+    {
+      "id": "evidence_destroyed",
+      "label": "Evidence concealed or destroyed",
+      "any": [
+        "burnt the",
+        "buried",
+        "hid the body",
+        "threw away",
+        "destroyed the",
+        "washed",
+        "removed the evidence"
+      ]
+    },
+    {
+      "id": "recovered_from_person",
+      "label": "Property traced to another person",
+      "any": [
+        "found with",
+        "saw him using",
+        "selling my",
+        "in his possession",
+        "recovered from"
+      ]
+    },
+    {
+      "id": "stridhan",
+      "label": "Woman's stridhan retained",
+      "any": [
+        "my jewellery",
+        "my ornaments",
+        "my gold",
+        "stridhan",
+        "my clothes",
+        "my belongings",
+        "wedding gifts"
+      ]
+    },
+    {
+      "id": "grievous",
+      "label": "Grievous injury indicated",
+      "any": [
+        "fracture",
+        "fractured",
+        "broken bone",
+        "unconscious",
+        "icu",
+        "surgery",
+        "permanent",
+        "lost sight",
+        "amputated"
+      ]
+    },
+    {
+      "id": "dwelling",
+      "label": "A dwelling house is involved",
+      "any": [
+        "house",
+        "home",
+        "flat",
+        "residence",
+        "hut",
+        "room where we live"
+      ]
+    },
+    {
+      "id": "woman",
+      "label": "The victim is a woman",
+      "any": [
+        "woman",
+        "girl",
+        "wife",
+        "daughter",
+        "sister",
+        "lady",
+        "she",
+        "her",
+        "female"
+      ]
+    },
+    {
+      "id": "dowry_demand",
+      "label": "Dowry demand alleged",
+      "any": [
+        "dowry",
+        "demanded money",
+        "demanded gold",
+        "asked from my parents"
+      ]
+    },
+    {
+      "id": "obscene",
+      "label": "Obscene content involved",
+      "any": [
+        "obscene",
+        "vulgar",
+        "nude",
+        "intimate",
+        "indecent",
+        "porn"
+      ]
+    },
+    {
+      "id": "restraint",
+      "label": "Movement obstructed",
+      "any": [
+        "blocked",
+        "stopped me",
+        "did not allow",
+        "prevented me"
+      ]
+    },
+    {
+      "id": "group",
+      "label": "Acting together with others",
+      "any": [
+        "together",
+        "all of them",
+        "along with",
+        "his friends",
+        "they came",
+        "group"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "trained_at": "2026-09-15 11:03:44",
+  "dataset": "indian_ipc_statute_identification.csv",
+  "n_rows_total": 40001,
+  "n_rows_used": 37681,
+  "n_classes": 60,
+  "min_samples_per_class": 100,
+  "top1_accuracy": 0.1463,
+  "top3_accuracy": 0.3799,
+  "top5_accuracy": 0.5084,
+  "note": "Measured on a held-out 20% split of court judgments. A spoken citizen complaint is a different text domain, so this figure is an upper bound on in-app behaviour. The legal engine therefore blends this signal with statute retrieval and an explainable rule layer."
+}

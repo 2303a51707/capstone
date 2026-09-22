@@ -1,0 +1,547 @@
+{
+  "_meta": {
+    "title": "IPC (1860) to BNS (2023) concordance - curated subset",
+    "note": "The Bharatiya Nyaya Sanhita, 2023 replaced the IPC for offences committed on or after 1 July 2024. Offences committed on or before 30 June 2024 are still charged under the IPC. There is no official machine-readable one-to-one concordance; several IPC offences were merged, split or re-defined. Every mapping below is a working reference for a police officer / advocate to VERIFY against the bare act before use.",
+    "verify_at": "https://www.indiacode.nic.in",
+    "cutover_date": "2024-07-01",
+    "coverage": "high-frequency sections only; unmapped IPC sections are surfaced with mapping_status=unmapped"
+  },
+  "map": {
+    "34": {
+      "bns": "3(5)",
+      "title": "Acts done by several persons in furtherance of common intention"
+    },
+    "107": {
+      "bns": "45",
+      "title": "Abetment of a thing"
+    },
+    "109": {
+      "bns": "49",
+      "title": "Abetment if the act abetted is committed in consequence"
+    },
+    "114": {
+      "bns": "54",
+      "title": "Abettor present when offence is committed"
+    },
+    "120B": {
+      "bns": "61(2)",
+      "title": "Punishment of criminal conspiracy"
+    },
+    "141": {
+      "bns": "189(1)",
+      "title": "Unlawful assembly"
+    },
+    "143": {
+      "bns": "189(2)",
+      "title": "Punishment - member of unlawful assembly"
+    },
+    "147": {
+      "bns": "191(2)",
+      "title": "Punishment for rioting"
+    },
+    "148": {
+      "bns": "191(3)",
+      "title": "Rioting, armed with deadly weapon"
+    },
+    "149": {
+      "bns": "190",
+      "title": "Every member of unlawful assembly guilty of offence committed in prosecution of common object"
+    },
+    "153A": {
+      "bns": "196",
+      "title": "Promoting enmity between different groups"
+    },
+    "166": {
+      "bns": "198",
+      "title": "Public servant disobeying law with intent to cause injury"
+    },
+    "182": {
+      "bns": "217",
+      "title": "False information with intent to cause public servant to use lawful power to injury of another"
+    },
+    "186": {
+      "bns": "221",
+      "title": "Obstructing public servant in discharge of public functions"
+    },
+    "188": {
+      "bns": "223",
+      "title": "Disobedience to order duly promulgated by public servant"
+    },
+    "191": {
+      "bns": "227",
+      "title": "Giving false evidence"
+    },
+    "193": {
+      "bns": "229",
+      "title": "Punishment for false evidence"
+    },
+    "201": {
+      "bns": "238",
+      "title": "Causing disappearance of evidence of offence"
+    },
+    "211": {
+      "bns": "248",
+      "title": "False charge of offence made with intent to injure"
+    },
+    "228A": {
+      "bns": "72",
+      "title": "Disclosure of identity of victim of certain offences"
+    },
+    "269": {
+      "bns": "271",
+      "title": "Negligent act likely to spread infection of disease dangerous to life"
+    },
+    "279": {
+      "bns": "281",
+      "title": "Rash driving or riding on a public way"
+    },
+    "294": {
+      "bns": "296",
+      "title": "Obscene acts and songs"
+    },
+    "295A": {
+      "bns": "299",
+      "title": "Deliberate and malicious acts intended to outrage religious feelings"
+    },
+    "298": {
+      "bns": "302",
+      "title": "Uttering words with deliberate intent to wound religious feelings"
+    },
+    "300": {
+      "bns": "101",
+      "title": "Murder (definition)"
+    },
+    "302": {
+      "bns": "103(1)",
+      "title": "Punishment for murder"
+    },
+    "304": {
+      "bns": "105",
+      "title": "Punishment for culpable homicide not amounting to murder"
+    },
+    "304A": {
+      "bns": "106(1)",
+      "title": "Causing death by negligence"
+    },
+    "304B": {
+      "bns": "80(2)",
+      "title": "Dowry death"
+    },
+    "306": {
+      "bns": "108",
+      "title": "Abetment of suicide"
+    },
+    "307": {
+      "bns": "109",
+      "title": "Attempt to murder"
+    },
+    "308": {
+      "bns": "110",
+      "title": "Attempt to commit culpable homicide"
+    },
+    "309": {
+      "bns": "226",
+      "title": "Attempt to commit suicide to compel or restrain exercise of lawful power"
+    },
+    "312": {
+      "bns": "88",
+      "title": "Causing miscarriage"
+    },
+    "313": {
+      "bns": "89",
+      "title": "Causing miscarriage without woman's consent"
+    },
+    "317": {
+      "bns": "93",
+      "title": "Exposure and abandonment of child under twelve years"
+    },
+    "318": {
+      "bns": "94",
+      "title": "Concealment of birth by secret disposal of dead body"
+    },
+    "319": {
+      "bns": "114",
+      "title": "Hurt (definition)"
+    },
+    "320": {
+      "bns": "116",
+      "title": "Grievous hurt (definition)"
+    },
+    "323": {
+      "bns": "115(2)",
+      "title": "Punishment for voluntarily causing hurt"
+    },
+    "324": {
+      "bns": "118(1)",
+      "title": "Voluntarily causing hurt by dangerous weapons or means"
+    },
+    "325": {
+      "bns": "117(2)",
+      "title": "Punishment for voluntarily causing grievous hurt"
+    },
+    "326": {
+      "bns": "118(2)",
+      "title": "Voluntarily causing grievous hurt by dangerous weapons or means"
+    },
+    "326A": {
+      "bns": "124(1)",
+      "title": "Voluntarily causing grievous hurt by use of acid"
+    },
+    "326B": {
+      "bns": "124(2)",
+      "title": "Voluntarily throwing or attempting to throw acid"
+    },
+    "328": {
+      "bns": "123",
+      "title": "Causing hurt by means of poison with intent to commit an offence"
+    },
+    "332": {
+      "bns": "121(2)",
+      "title": "Voluntarily causing hurt to deter public servant from his duty"
+    },
+    "336": {
+      "bns": "125",
+      "title": "Act endangering life or personal safety of others"
+    },
+    "337": {
+      "bns": "125(a)",
+      "title": "Causing hurt by act endangering life or personal safety of others"
+    },
+    "338": {
+      "bns": "125(b)",
+      "title": "Causing grievous hurt by act endangering life or personal safety of others"
+    },
+    "341": {
+      "bns": "126(2)",
+      "title": "Punishment for wrongful restraint"
+    },
+    "342": {
+      "bns": "127(2)",
+      "title": "Punishment for wrongful confinement"
+    },
+    "351": {
+      "bns": "130",
+      "title": "Assault (definition)"
+    },
+    "352": {
+      "bns": "131",
+      "title": "Punishment for assault or criminal force otherwise than on grave provocation"
+    },
+    "353": {
+      "bns": "121(1)",
+      "title": "Assault or criminal force to deter public servant from discharge of duty"
+    },
+    "354": {
+      "bns": "74",
+      "title": "Assault or criminal force to woman with intent to outrage her modesty"
+    },
+    "354A": {
+      "bns": "75",
+      "title": "Sexual harassment"
+    },
+    "354B": {
+      "bns": "76",
+      "title": "Assault or use of criminal force to woman with intent to disrobe"
+    },
+    "354C": {
+      "bns": "77",
+      "title": "Voyeurism"
+    },
+    "354D": {
+      "bns": "78",
+      "title": "Stalking"
+    },
+    "361": {
+      "bns": "137(1)",
+      "title": "Kidnapping from lawful guardianship"
+    },
+    "362": {
+      "bns": "138",
+      "title": "Abduction"
+    },
+    "363": {
+      "bns": "137(2)",
+      "title": "Punishment for kidnapping"
+    },
+    "364": {
+      "bns": "140(1)",
+      "title": "Kidnapping or abducting in order to murder"
+    },
+    "364A": {
+      "bns": "140(2)",
+      "title": "Kidnapping for ransom"
+    },
+    "365": {
+      "bns": "140(3)",
+      "title": "Kidnapping or abducting with intent secretly and wrongfully to confine person"
+    },
+    "366": {
+      "bns": "87",
+      "title": "Kidnapping, abducting or inducing woman to compel her marriage"
+    },
+    "366A": {
+      "bns": "96",
+      "title": "Procuration of minor girl"
+    },
+    "370": {
+      "bns": "143",
+      "title": "Trafficking of person"
+    },
+    "372": {
+      "bns": "98",
+      "title": "Selling minor for purposes of prostitution"
+    },
+    "373": {
+      "bns": "99",
+      "title": "Buying minor for purposes of prostitution"
+    },
+    "375": {
+      "bns": "63",
+      "title": "Rape (definition)"
+    },
+    "376": {
+      "bns": "64",
+      "title": "Punishment for rape"
+    },
+    "376A": {
+      "bns": "66",
+      "title": "Punishment for causing death or resulting in persistent vegetative state of victim"
+    },
+    "376B": {
+      "bns": "67",
+      "title": "Sexual intercourse by husband upon his wife during separation"
+    },
+    "376C": {
+      "bns": "68",
+      "title": "Sexual intercourse by a person in authority"
+    },
+    "376D": {
+      "bns": "70(1)",
+      "title": "Gang rape"
+    },
+    "377": {
+      "bns": null,
+      "title": "Unnatural offences - NO direct BNS equivalent; not re-enacted in BNS 2023"
+    },
+    "379": {
+      "bns": "303(2)",
+      "title": "Punishment for theft"
+    },
+    "380": {
+      "bns": "305",
+      "title": "Theft in dwelling house, etc."
+    },
+    "381": {
+      "bns": "306",
+      "title": "Theft by clerk or servant of property in possession of master"
+    },
+    "382": {
+      "bns": "307",
+      "title": "Theft after preparation made for causing death, hurt or restraint"
+    },
+    "384": {
+      "bns": "308(2)",
+      "title": "Punishment for extortion"
+    },
+    "386": {
+      "bns": "308(3)",
+      "title": "Extortion by putting a person in fear of death or grievous hurt"
+    },
+    "387": {
+      "bns": "308(4)",
+      "title": "Putting person in fear of death or grievous hurt, in order to commit extortion"
+    },
+    "392": {
+      "bns": "309(4)",
+      "title": "Punishment for robbery"
+    },
+    "394": {
+      "bns": "309(6)",
+      "title": "Voluntarily causing hurt in committing robbery"
+    },
+    "395": {
+      "bns": "310(2)",
+      "title": "Punishment for dacoity"
+    },
+    "396": {
+      "bns": "310(3)",
+      "title": "Dacoity with murder"
+    },
+    "397": {
+      "bns": "311",
+      "title": "Robbery or dacoity with attempt to cause death or grievous hurt"
+    },
+    "399": {
+      "bns": "310(5)",
+      "title": "Making preparation to commit dacoity"
+    },
+    "403": {
+      "bns": "314",
+      "title": "Dishonest misappropriation of property"
+    },
+    "404": {
+      "bns": "315",
+      "title": "Dishonest misappropriation of property possessed by deceased person"
+    },
+    "406": {
+      "bns": "316(2)",
+      "title": "Punishment for criminal breach of trust"
+    },
+    "408": {
+      "bns": "316(4)",
+      "title": "Criminal breach of trust by clerk or servant"
+    },
+    "409": {
+      "bns": "316(5)",
+      "title": "Criminal breach of trust by public servant, banker, merchant or agent"
+    },
+    "411": {
+      "bns": "317(2)",
+      "title": "Dishonestly receiving stolen property"
+    },
+    "413": {
+      "bns": "317(4)",
+      "title": "Habitually dealing in stolen property"
+    },
+    "414": {
+      "bns": "317(5)",
+      "title": "Assisting in concealment of stolen property"
+    },
+    "415": {
+      "bns": "318(1)",
+      "title": "Cheating (definition)"
+    },
+    "417": {
+      "bns": "318(2)",
+      "title": "Punishment for cheating"
+    },
+    "418": {
+      "bns": "318(3)",
+      "title": "Cheating with knowledge that wrongful loss may ensue"
+    },
+    "419": {
+      "bns": "319(2)",
+      "title": "Punishment for cheating by personation"
+    },
+    "420": {
+      "bns": "318(4)",
+      "title": "Cheating and dishonestly inducing delivery of property"
+    },
+    "425": {
+      "bns": "324(1)",
+      "title": "Mischief (definition)"
+    },
+    "427": {
+      "bns": "324(4)",
+      "title": "Mischief causing damage to the amount of fifty rupees or upwards"
+    },
+    "435": {
+      "bns": "326(f)",
+      "title": "Mischief by fire or explosive substance with intent to cause damage"
+    },
+    "436": {
+      "bns": "326(g)",
+      "title": "Mischief by fire or explosive substance with intent to destroy house"
+    },
+    "441": {
+      "bns": "329(1)",
+      "title": "Criminal trespass (definition)"
+    },
+    "442": {
+      "bns": "329(2)",
+      "title": "House-trespass (definition)"
+    },
+    "447": {
+      "bns": "329(3)",
+      "title": "Punishment for criminal trespass"
+    },
+    "448": {
+      "bns": "329(4)",
+      "title": "Punishment for house-trespass"
+    },
+    "451": {
+      "bns": "331(3)",
+      "title": "House-trespass in order to commit offence punishable with imprisonment"
+    },
+    "452": {
+      "bns": "331(4)",
+      "title": "House-trespass after preparation for hurt, assault or wrongful restraint"
+    },
+    "454": {
+      "bns": "331(5)",
+      "title": "Lurking house-trespass or house-breaking in order to commit offence"
+    },
+    "457": {
+      "bns": "331(6)",
+      "title": "Lurking house-trespass or house-breaking by night in order to commit offence"
+    },
+    "465": {
+      "bns": "336(2)",
+      "title": "Punishment for forgery"
+    },
+    "467": {
+      "bns": "338",
+      "title": "Forgery of valuable security, will, etc."
+    },
+    "468": {
+      "bns": "336(3)",
+      "title": "Forgery for purpose of cheating"
+    },
+    "469": {
+      "bns": "336(4)",
+      "title": "Forgery for purpose of harming reputation"
+    },
+    "471": {
+      "bns": "340(2)",
+      "title": "Using as genuine a forged document or electronic record"
+    },
+    "489A": {
+      "bns": "178",
+      "title": "Counterfeiting currency notes or bank notes"
+    },
+    "494": {
+      "bns": "82(1)",
+      "title": "Marrying again during lifetime of husband or wife"
+    },
+    "498A": {
+      "bns": "85",
+      "title": "Husband or relative of husband subjecting a woman to cruelty (cruelty defined in BNS 86)"
+    },
+    "499": {
+      "bns": "356(1)",
+      "title": "Defamation (definition)"
+    },
+    "500": {
+      "bns": "356(2)",
+      "title": "Punishment for defamation"
+    },
+    "503": {
+      "bns": "351(1)",
+      "title": "Criminal intimidation (definition)"
+    },
+    "504": {
+      "bns": "352",
+      "title": "Intentional insult with intent to provoke breach of peace"
+    },
+    "505": {
+      "bns": "353",
+      "title": "Statements conducing to public mischief"
+    },
+    "506": {
+      "bns": "351(2)",
+      "title": "Punishment for criminal intimidation"
+    },
+    "507": {
+      "bns": "351(4)",
+      "title": "Criminal intimidation by anonymous communication"
+    },
+    "509": {
+      "bns": "79",
+      "title": "Word, gesture or act intended to insult the modesty of a woman"
+    },
+    "511": {
+      "bns": "62",
+      "title": "Punishment for attempting to commit offences"
+    }
+  }
+}

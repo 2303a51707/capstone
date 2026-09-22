@@ -1,0 +1,303 @@
+{
+  "_meta": {
+    "note": "Special / local laws frequently invoked alongside the BNS in a first information report. The uploaded IPC dataset does not contain these, so they are curated here. All entries must be verified by the investigating officer against the bare act."
+  },
+  "provisions": [
+    {
+      "code": "BNS304",
+      "law_name": "Bharatiya Nyaya Sanhita, 2023",
+      "section_number": "304",
+      "offence_name": "Snatching (new offence - no IPC predecessor)",
+      "description": "Theft is snatching if, in order to commit theft, the offender suddenly or quickly or forcibly seizes or secures or grabs or takes away from any person or from his possession any movable property. Snatching was made a distinct offence for the first time by the BNS, 2023; there is no corresponding section in the repealed IPC.",
+      "punishment": "Up to 3 years imprisonment and fine",
+      "keywords": [
+        "snatched",
+        "grabbed",
+        "pulled from my hand",
+        "chain snatching",
+        "bike came and took",
+        "suddenly took",
+        "from my neck"
+      ],
+      "flag": "BNS_NATIVE"
+    },
+    {
+      "code": "BNS103_2",
+      "law_name": "Bharatiya Nyaya Sanhita, 2023",
+      "section_number": "103(2)",
+      "offence_name": "Murder by a group of five or more persons on specified grounds (mob lynching - new offence)",
+      "description": "When a group of five or more persons acting in concert commits murder on the ground of race, caste or community, sex, place of birth, language, personal belief or any other similar ground, each member of that group shall be punished. This is a new offence introduced by the BNS, 2023.",
+      "punishment": "Death or imprisonment for life, and fine",
+      "keywords": [
+        "mob",
+        "group of people",
+        "crowd attacked",
+        "lynch",
+        "beat to death"
+      ],
+      "flag": "BNS_NATIVE"
+    },
+    {
+      "code": "BNS112",
+      "law_name": "Bharatiya Nyaya Sanhita, 2023",
+      "section_number": "112",
+      "offence_name": "Petty organised crime (new offence)",
+      "description": "Whoever, being a member of a group or gang, either singly or jointly, commits theft, snatching, cheating, unauthorised selling of tickets, unauthorised betting or gambling, selling of public examination question papers or any other similar criminal act, causing general feelings of insecurity among citizens, commits petty organised crime.",
+      "punishment": "1 to 7 years imprisonment and fine",
+      "keywords": [
+        "gang",
+        "group",
+        "repeatedly",
+        "organised",
+        "same people again"
+      ],
+      "flag": "BNS_NATIVE"
+    },
+    {
+      "code": "BNS111",
+      "law_name": "Bharatiya Nyaya Sanhita, 2023",
+      "section_number": "111",
+      "offence_name": "Organised crime (new offence)",
+      "description": "Continuing unlawful activity including kidnapping, robbery, vehicle theft, extortion, land grabbing, contract killing, economic offence, cyber-crime, trafficking, or committing such offence as a member of an organised crime syndicate.",
+      "punishment": "Minimum 5 years to life; death or life where the offence results in death",
+      "keywords": [
+        "syndicate",
+        "gang",
+        "mafia",
+        "land grabbing",
+        "contract killing"
+      ],
+      "flag": "BNS_NATIVE"
+    },
+    {
+      "code": "IT66C",
+      "law_name": "Information Technology Act, 2000",
+      "section_number": "66C",
+      "offence_name": "Identity theft - fraudulent use of electronic signature, password or unique identification feature",
+      "description": "Whoever, fraudulently or dishonestly makes use of the electronic signature, password or any other unique identification feature of any other person, shall be punished with imprisonment of either description for a term which may extend to three years and shall also be liable to fine which may extend to rupees one lakh.",
+      "punishment": "Up to 3 years imprisonment and fine up to Rs. 1,00,000",
+      "keywords": [
+        "otp",
+        "password",
+        "pin",
+        "account hacked",
+        "identity",
+        "aadhaar",
+        "credentials",
+        "login"
+      ]
+    },
+    {
+      "code": "IT66D",
+      "law_name": "Information Technology Act, 2000",
+      "section_number": "66D",
+      "offence_name": "Cheating by personation by using computer resource",
+      "description": "Whoever, by means of any communication device or computer resource cheats by personation, shall be punished with imprisonment of either description for a term which may extend to three years and shall also be liable to fine which may extend to one lakh rupees.",
+      "punishment": "Up to 3 years imprisonment and fine up to Rs. 1,00,000",
+      "keywords": [
+        "online fraud",
+        "fake call",
+        "impersonation",
+        "upi",
+        "phishing",
+        "customer care",
+        "link",
+        "whatsapp fraud"
+      ]
+    },
+    {
+      "code": "IT66E",
+      "law_name": "Information Technology Act, 2000",
+      "section_number": "66E",
+      "offence_name": "Violation of privacy - capturing or transmitting image of a private area",
+      "description": "Whoever, intentionally or knowingly captures, publishes or transmits the image of a private area of any person without his or her consent, under circumstances violating the privacy of that person, shall be punished with imprisonment which may extend to three years or with fine not exceeding two lakh rupees, or with both.",
+      "punishment": "Up to 3 years imprisonment or fine up to Rs. 2,00,000, or both",
+      "keywords": [
+        "photo",
+        "video",
+        "private",
+        "recorded",
+        "camera",
+        "obscene picture",
+        "morphed"
+      ]
+    },
+    {
+      "code": "IT67",
+      "law_name": "Information Technology Act, 2000",
+      "section_number": "67",
+      "offence_name": "Publishing or transmitting obscene material in electronic form",
+      "description": "Whoever publishes or transmits or causes to be published or transmitted in the electronic form any material which is lascivious or appeals to the prurient interest shall be punished on first conviction with imprisonment of either description for a term which may extend to three years and with fine which may extend to five lakh rupees.",
+      "punishment": "First conviction: up to 3 years and fine up to Rs. 5,00,000",
+      "keywords": [
+        "obscene",
+        "posted online",
+        "social media",
+        "circulated",
+        "viral",
+        "morphed photo"
+      ]
+    },
+    {
+      "code": "MV184",
+      "law_name": "Motor Vehicles Act, 1988",
+      "section_number": "184",
+      "offence_name": "Driving dangerously",
+      "description": "Whoever drives a motor vehicle at a speed or in a manner which is dangerous to the public, having regard to all the circumstances of the case, shall be punishable for the first offence with imprisonment for a term which may extend to one year but shall not be less than six months or with fine which shall not be less than one thousand rupees but may extend to five thousand rupees, or with both.",
+      "punishment": "First offence: 6 months to 1 year imprisonment and/or fine of Rs. 1,000-5,000",
+      "keywords": [
+        "rash",
+        "dangerous driving",
+        "speeding",
+        "overtaking",
+        "signal jump",
+        "accident"
+      ]
+    },
+    {
+      "code": "MV134",
+      "law_name": "Motor Vehicles Act, 1988",
+      "section_number": "134",
+      "offence_name": "Duty of driver in case of accident and injury to a person",
+      "description": "When any person is injured or any property of a third party is damaged as a result of an accident in which a motor vehicle is involved, the driver of the vehicle shall take all reasonable steps to secure medical attention for the injured person and shall give information of the accident to a police officer.",
+      "punishment": "Read with Section 187 - up to 6 months imprisonment or fine, or both",
+      "keywords": [
+        "hit and run",
+        "fled",
+        "ran away after accident",
+        "did not stop",
+        "no help"
+      ]
+    },
+    {
+      "code": "POCSO",
+      "law_name": "Protection of Children from Sexual Offences Act, 2012",
+      "section_number": "Applicable POCSO provisions",
+      "offence_name": "Sexual offence against a child (person below 18 years)",
+      "description": "Where the victim of a sexual offence is a child below eighteen years of age, the POCSO Act applies in addition to the Bharatiya Nyaya Sanhita. The specific section (penetrative sexual assault, sexual assault, sexual harassment or use of child for pornographic purposes) must be determined by the investigating officer from the facts. Reporting is mandatory under Section 19 and the case must be handled by the Special Juvenile Police Unit.",
+      "punishment": "Varies by provision - minimum sentences apply and are enhanced for aggravated forms",
+      "keywords": [
+        "child",
+        "minor",
+        "school",
+        "under 18",
+        "student",
+        "girl aged",
+        "boy aged"
+      ],
+      "flag": "MANDATORY_SPECIAL_HANDLING"
+    },
+    {
+      "code": "DVACT",
+      "law_name": "Protection of Women from Domestic Violence Act, 2005",
+      "section_number": "Reliefs under Sections 18-23",
+      "offence_name": "Civil reliefs for domestic violence (protection, residence, monetary relief, custody)",
+      "description": "This is a civil remedy available in addition to any criminal provision. An aggrieved woman in a domestic relationship may apply to a Magistrate through a Protection Officer for protection orders, residence orders, monetary relief, custody orders and compensation. It does not by itself create a police-registered offence, but the police are required to inform the aggrieved person of this remedy.",
+      "punishment": "Breach of a protection order under Section 31 - up to 1 year imprisonment or fine up to Rs. 20,000, or both",
+      "keywords": [
+        "husband",
+        "in-laws",
+        "domestic",
+        "household",
+        "beaten at home",
+        "thrown out of house"
+      ],
+      "flag": "CIVIL_REMEDY"
+    },
+    {
+      "code": "DP3",
+      "law_name": "Dowry Prohibition Act, 1961",
+      "section_number": "3 and 4",
+      "offence_name": "Giving or taking dowry; demanding dowry",
+      "description": "Section 3 punishes giving or taking of dowry. Section 4 punishes the demand for dowry, directly or indirectly, from the parents or other relatives or guardian of a bride or bridegroom.",
+      "punishment": "Section 3 - not less than 5 years and fine of not less than Rs. 15,000; Section 4 - 6 months to 2 years and fine up to Rs. 10,000",
+      "keywords": [
+        "dowry",
+        "demand",
+        "gold",
+        "cash demand",
+        "marriage demand",
+        "in-laws demanded"
+      ]
+    },
+    {
+      "code": "ARMS25",
+      "law_name": "Arms Act, 1959",
+      "section_number": "25",
+      "offence_name": "Punishment for possessing or carrying prohibited arms",
+      "description": "Punishes acquisition, possession, manufacture, sale, transfer or carrying of arms or ammunition in contravention of Section 3 or Section 5 of the Act.",
+      "punishment": "Varies by sub-section - typically 1 to 7 years and fine; higher for prohibited arms",
+      "keywords": [
+        "pistol",
+        "gun",
+        "revolver",
+        "firearm",
+        "country made",
+        "katta"
+      ]
+    },
+    {
+      "code": "BNSS173",
+      "law_name": "Bharatiya Nagarik Suraksha Sanhita, 2023 (procedure - not an offence)",
+      "section_number": "173",
+      "offence_name": "Information in cognizable cases (registration of FIR, including zero FIR and electronic FIR)",
+      "description": "Every information relating to the commission of a cognizable offence may be given orally or by electronic communication to an officer in charge of a police station, irrespective of the area where the offence is committed (zero FIR). Information given orally shall be reduced to writing, read over to the informant and signed. A copy of the information shall be given free of cost to the informant.",
+      "punishment": "Not applicable - procedural provision",
+      "keywords": [
+        "fir",
+        "register",
+        "complaint",
+        "police station",
+        "zero fir"
+      ],
+      "flag": "PROCEDURAL"
+    },
+    {
+      "code": "BNSS194",
+      "law_name": "Bharatiya Nagarik Suraksha Sanhita, 2023 (procedure - not an offence)",
+      "section_number": "194",
+      "offence_name": "Police to enquire and report on suicide, etc. (inquest)",
+      "description": "Procedural provision for inquest into unnatural, suspicious or accidental death.",
+      "punishment": "Not applicable - procedural provision",
+      "keywords": [
+        "dead body",
+        "unnatural death",
+        "found dead",
+        "suicide"
+      ],
+      "flag": "PROCEDURAL"
+    },
+    {
+      "code": "MISSING",
+      "law_name": "Standard police procedure (not a penal offence by itself)",
+      "section_number": "Missing Person Report",
+      "offence_name": "Missing person report - to be registered immediately",
+      "description": "A missing person report must be recorded immediately without waiting for any time period to elapse. Where the missing person is a child, the Supreme Court directions require an FIR to be registered forthwith on the presumption of possible kidnapping or trafficking. Where the missing person is an adult, a missing report is registered and converted to an FIR if foul play is suspected.",
+      "punishment": "Not applicable - becomes a penal matter only if abduction, kidnapping or trafficking is disclosed",
+      "keywords": [
+        "missing",
+        "not returned",
+        "untraceable",
+        "disappeared",
+        "cannot find my"
+      ],
+      "flag": "PROCEDURAL"
+    },
+    {
+      "code": "LOSTPROP",
+      "law_name": "Standard police procedure (not a penal offence by itself)",
+      "section_number": "Lost Property / Community Service Register (CSR) entry",
+      "offence_name": "Lost article report - no offence disclosed on the facts stated",
+      "description": "Where property has been mislaid or lost without any person taking it dishonestly, no cognizable offence is disclosed. A lost-property acknowledgement (CSR / e-lost report) is issued, which is accepted for duplicate documents, SIM re-issue and insurance. If the facts later show that the property was taken by a person, the matter is converted into a theft case.",
+      "punishment": "Not applicable",
+      "keywords": [
+        "lost",
+        "misplaced",
+        "left behind",
+        "dropped somewhere",
+        "forgot"
+      ],
+      "flag": "NO_OFFENCE_DISCLOSED"
+    }
+  ]
+}
