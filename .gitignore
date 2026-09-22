@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+backend/nyayavoice.db
+backend/ml/artifacts/*.joblib
+backend/data/legal_kb.json
+backend/data/fonts/*.ttf
+*.pdf
+.DS_Store

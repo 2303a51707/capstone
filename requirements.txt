@@ -1,0 +1,33 @@
+# ---------------------------------------------------------------- core (required)
+fastapi>=0.110
+uvicorn[standard]>=0.27
+python-multipart>=0.0.9          # multipart audio upload for /api/transcribe
+pydantic>=2.6
+
+# ---------------------------------------------------------------- NLP / ML (required)
+scikit-learn>=1.4                # TF-IDF, LinearSVC, calibration, retrieval index
+pandas>=2.0                      # dataset loading for build_kb.py and train.py
+numpy>=1.26
+joblib>=1.3
+
+# ---------------------------------------------------------------- PDF (required)
+fpdf2>=2.7                       # primary PDF engine
+uharfbuzz>=0.39                  # text shaping - without it Indic conjuncts render broken
+reportlab>=4.0                   # fallback engine, English only
+
+# ---------------------------------------------------------------- speech (pick one)
+faster-whisper>=1.0              # recommended: 4-5x quicker than openai-whisper on CPU
+# openai-whisper>=20231117       # alternative; needs ffmpeg on PATH
+
+# ---------------------------------------------------------------- translation (pick one)
+deep-translator>=1.11            # Google fallback; needs internet
+requests>=2.31                   # Direct MyMemory REST fallback
+# NLLB fallback (offline after first model download)
+torch>=2.0
+transformers>=4.40
+sentencepiece>=0.1.99
+
+# ---------------------------------------------------------------- optional quality boosts
+langdetect>=1.0.9                # better detection for Latin-script input
+# spacy>=3.7                     # improves PERSON / GPE extraction
+#   after installing spacy:  python -m spacy download en_core_web_sm
